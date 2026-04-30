@@ -52,7 +52,7 @@ func _build_square_registry() -> void:
     if board == null:
         push_error("BoardManager: no se encontró ../Board")
         return
-        
+
     var container = get_node_or_null("../Board/SquaresContainer")
     if container and container.get_child_count() > 0:
         for i in container.get_child_count():
@@ -65,8 +65,6 @@ func _build_square_registry() -> void:
     if squares.is_empty():
         push_error("BoardManager: no se encontraron casillas registrables")
         return
-
- 
 
     print("BoardManager: %d casillas registradas" % squares.size())
 
@@ -246,7 +244,6 @@ func _on_collect_all_board_coins(player_id: int) -> void:
     var total = 0
     for idx in coins_on_board.keys():
         total += coins_on_board[idx]
-        squares[idx].hide_coins()
         if idx >= 0 and idx < squares.size() and squares[idx].has_method("hide_coins"):
             squares[idx].hide_coins()
     coins_on_board.clear()

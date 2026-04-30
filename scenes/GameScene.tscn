@@ -28,7 +28,7 @@ zoom = Vector2(0.85, 0.85)
 [node name="Board" parent="." unique_id=870065626 instance=ExtResource("1_w22tq")]
 position = Vector2(640, 360)
 
-[node name="BoardManager" parent="." unique_id=4019353 instance=ExtResource("3_kxqg4")]
+[node name="BoardManager" parent="." unique_id=400001111 instance=ExtResource("15_bmngr")]
 
 [node name="DiceSystem" parent="." unique_id=1426629508 instance=ExtResource("2_e8rlm")]
 

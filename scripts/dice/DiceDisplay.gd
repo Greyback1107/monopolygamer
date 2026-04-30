@@ -140,5 +140,39 @@ func _place_on_screen() -> void:
 
 func _style_panel() -> void:
     var panel = _find_node_by_name(self, "Panel")
-    if panel and panel is Control:
-        panel.custom_minimum_size = Vector2(320, 220)
+    if panel == null or not (panel is Control):
+        return
+
+    panel.set_anchors_preset(Control.PRESET_TOP_LEFT)
+    panel.position = Vector2.ZERO
+    panel.size = Vector2(340, 260)
+    panel.custom_minimum_size = Vector2(340, 260)
+
+    var title = _find_node_by_name(panel, "TitleLabel")
+    if title and title is Control:
+        title.position = Vector2(12, 8)
+        title.size = Vector2(316, 24)
+
+    var num = _find_node_by_name(panel, "NumericDieVisual")
+    var pow = _find_node_by_name(panel, "PowerUpDieVisual")
+    if num:
+        num.position = Vector2(88, 82)
+    if pow:
+        pow.position = Vector2(228, 82)
+
+    var row = _find_node_by_name(panel, "DiceRow")
+    if row and row is Control:
+        row.position = Vector2(30, 42)
+        row.size = Vector2(280, 120)
+
+    var order = _find_node_by_name(panel, "OrderPanel")
+    if order and order is Control:
+        order.position = Vector2(12, 168)
+        order.size = Vector2(316, 88)
+
+    var move_btn = _find_node_by_name(panel, "MoveFirstButton")
+    var power_btn = _find_node_by_name(panel, "PowerFirstButton")
+    if move_btn and move_btn is Control:
+        move_btn.size = Vector2(316, 34)
+    if power_btn and power_btn is Control:
+        power_btn.size = Vector2(316, 34)
