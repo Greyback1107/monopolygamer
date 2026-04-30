@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qnpv2y6w8s65" path="res://scripts/GameScene.gd" id="1_qitmq"]
 [ext_resource type="PackedScene" uid="uid://cfpcj0gf8dsic" path="res://scenes/board/Board.tscn" id="1_w22tq"]
+[ext_resource type="PackedScene" uid="uid://c6blwp803s2en" path="res://scenes/board/BoardManager.tscn" id="15_bmngr"]
 [ext_resource type="PackedScene" uid="uid://cqa8yr4i5sh0o" path="res://scenes/dice/DiceSystem.tscn" id="2_e8rlm"]
 [ext_resource type="PackedScene" uid="uid://cmio6fqjfeqdb" path="res://scenes/characters/CharacterSystem.tscn" id="3_qitmq"]
 [ext_resource type="PackedScene" uid="uid://c5aec50o88ts6" path="res://scenes/grand_prix/GrandPrixSystem.tscn" id="4_kxqg4"]
@@ -25,6 +26,8 @@ zoom = Vector2(0.85, 0.85)
 
 [node name="Board" parent="." unique_id=870065626 instance=ExtResource("1_w22tq")]
 position = Vector2(640, 360)
+
+[node name="BoardManager" parent="." unique_id=400001111 instance=ExtResource("15_bmngr")]
 
 [node name="DiceSystem" parent="." unique_id=1426629508 instance=ExtResource("2_e8rlm")]
 

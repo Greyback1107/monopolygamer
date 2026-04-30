@@ -13,6 +13,8 @@ var _powerup_face: Dictionary = {}
 var _rolls_done: int = 0
 
 func _ready() -> void:
+    _place_on_screen()
+    get_viewport().size_changed.connect(_place_on_screen)
     # Buscar y castear correctamente
     var num_node = _find_node_by_name(self, "NumericDieVisual")
     var pow_node = _find_node_by_name(self, "PowerUpDieVisual")
@@ -61,6 +63,7 @@ func _ready() -> void:
             )
         order_panel.visible = false
 
+    _style_panel()
     visible = false
 
 func _find_node_by_name(node: Node, target: String) -> Node:
@@ -92,7 +95,9 @@ func start_roll_animation(
     title_label.text = "🎲 Lanzando dados..."
 
     # Slide-in del panel
-    $AnimationPlayer.play("slide_in")
+    var anim = $AnimationPlayer
+    if anim and anim.has_animation("slide_in"):
+        anim.play("slide_in")
 
     # Lanzar ambas animaciones simultáneamente
     numeric_visual.play_roll_animation(numeric_result)
@@ -127,3 +132,13 @@ func _on_order_chosen(order: int) -> void:
     visible = false
     # Notificar al DiceSystem
     GameEvents.dice_order_chosen.emit(order)
+
+
+func _place_on_screen() -> void:
+    var vp = get_viewport_rect().size
+    position = Vector2(vp.x - 340, 16)
+
+func _style_panel() -> void:
+    var panel = _find_node_by_name(self, "Panel")
+    if panel and panel is Control:
+        panel.custom_minimum_size = Vector2(320, 220)
