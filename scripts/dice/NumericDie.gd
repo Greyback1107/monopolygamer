@@ -17,8 +17,12 @@ func roll() -> void:
         return
     is_rolling = true
     # Animación de rodando
-    $DieSprite/AnimationPlayer.play("rolling")
-    await $DieSprite/AnimationPlayer.animation_finished
+    var anim = $DieSprite/AnimationPlayer
+    if anim and anim.has_animation("rolling"):
+        anim.play("rolling")
+        await anim.animation_finished
+    else:
+        await get_tree().create_timer(0.35).timeout
     # Resultado real
     current_result = randi_range(MIN_VALUE, MAX_VALUE)
     _show_result()
