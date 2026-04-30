@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://c52hjf3vtekuo"]
 
+[ext_resource type="Script" uid="uid://c3fu5g6hvei5j" path="res://scripts/properties/PropertySystem.gd" id="1_1orgo"]
+
 [node name="PropertySystem" type="Node2D" unique_id=663563783]
+script = ExtResource("1_1orgo")

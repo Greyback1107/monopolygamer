@@ -8,7 +8,12 @@ func _ready() -> void:
     GameEvents.show_buy_panel.connect(_on_show)
     GameEvents.hide_buy_panel.connect(func(): visible = false)
     $BuyButton.pressed.connect(_on_buy)
-    $AuctionButton.pressed.connect(_on_auction)
+    var auction_btn = get_node_or_null("AuctionButton")
+    if auction_btn:
+        auction_btn.pressed.connect(_on_auction)
+    var aution_btn = get_node_or_null("AutionButton")
+    if aution_btn:
+        aution_btn.pressed.connect(_on_auction)
     visible = false
 
 func _on_show(player_id: int, square) -> void:
