@@ -5,12 +5,14 @@ var player_id: int = -1
 var player_color: Color = Color.WHITE
 var character_id: String = ""
 
-const RADIUS = 18.0
+const RADIUS = 26.0
 
 func setup(pid: int, char_id: String, color: Color) -> void:
     player_id = pid
     character_id = char_id
     player_color = color
+    z_as_relative = false
+    z_index = 500
     _build_visuals()
     _connect_signals()
 
@@ -24,7 +26,8 @@ var color: Color = Color.WHITE
 var radius: float = 18.0
 func _draw():
     draw_circle(Vector2.ZERO, radius, color)
-    draw_arc(Vector2.ZERO, radius, 0, TAU, 32, Color.BLACK, 2.0)
+    draw_arc(Vector2.ZERO, radius, 0, TAU, 48, Color.WHITE, 4.0)
+    draw_arc(Vector2.ZERO, radius - 2.0, 0, TAU, 48, Color.BLACK, 1.5)
 """
     circle_script.reload()
     circle.set_script(circle_script)
@@ -35,7 +38,7 @@ func _draw():
     var lbl = Label.new()
     lbl.name = "InitialsLabel"
     lbl.text = _get_initials(character_id)
-    lbl.add_theme_font_size_override("font_size", 11)
+    lbl.add_theme_font_size_override("font_size", 16)
     lbl.add_theme_color_override("font_color", Color.WHITE)
     lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER

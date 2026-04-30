@@ -197,6 +197,8 @@ func _spawn_player_token(player_id: int, character_id: String) -> void:
     var token_layer = board.get_node_or_null("TokenLayer")
     if token_layer == null:
         return
+    token_layer.z_as_relative = false
+    token_layer.z_index = 400
 
     var token = token_scene.instantiate()
     var player = PlayerManager.get_player(player_id)
@@ -204,5 +206,7 @@ func _spawn_player_token(player_id: int, character_id: String) -> void:
     token_layer.add_child(token)
     token.setup(player_id, character_id, pcolor)
     if board.has_method("get_square_position"):
-        token.global_position = board.get_square_position(0)
+        var base_pos = board.get_square_position(0)
+        var offset = Vector2((player_id % 2) * 18 - 9, int(player_id / 2) * 18 - 9)
+        token.global_position = base_pos + offset
     spawned_tokens[player_id] = token
