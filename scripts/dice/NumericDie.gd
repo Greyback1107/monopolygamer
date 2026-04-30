@@ -9,6 +9,15 @@ const MAX_VALUE = 6
 var current_result: int = 0
 var is_rolling: bool = false
 
+func _ready() -> void:
+    if has_node("RollButton"):
+        $RollButton.visible = false
+    if has_node("ResultLabel"):
+        $ResultLabel.visible = false
+    if has_node("DieSprite"):
+        $DieSprite.visible = false
+
+
 # Texturas para cada cara (asignar en el Inspector)
 @export var face_textures: Array[Texture2D] = []
 

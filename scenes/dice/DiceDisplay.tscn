@@ -49,9 +49,11 @@ layout_mode = 2
 [node name="MoveFirstButton" type="Button" parent="Panel/OrderPanel" unique_id=1167255074]
 custom_minimum_size = Vector2(280, 32)
 layout_mode = 2
+custom_minimum_size = Vector2(280, 32)
 
 [node name="PowerFirstButton" type="Button" parent="Panel/OrderPanel" unique_id=677493382]
 custom_minimum_size = Vector2(280, 32)
 layout_mode = 2
+custom_minimum_size = Vector2(280, 32)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=534603960]
