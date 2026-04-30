@@ -4,7 +4,7 @@ extends Node
 # ─────────────────────────────────────────
 # CONSTANTES
 # ─────────────────────────────────────────
-const TOTAL_SQUARES = 40
+const TOTAL_SQUARES = 32
 const GO_SQUARE_INDEX = 0
 const JAIL_SQUARE_INDEX = 18
 const FREE_PARKING_INDEX = 9     # ajusta según tu tablero
@@ -48,19 +48,26 @@ func _build_square_registry() -> void:
     squares.clear()
     color_groups.clear()
 
-    var container = get_node("../Board/SquaresContainer")
-    for i in TOTAL_SQUARES:
-        var square = container.get_child(i)
-        squares.append(square)
+    var board = get_node_or_null("../Board")
+    if board == null:
+        push_error("BoardManager: no se encontró ../Board")
+        return
 
-        # Registrar grupos de color
-        if square is PropertySquare and square.data.color_group != "":
-            var group = square.data.color_group
-            if not color_groups.has(group):
-                color_groups[group] = []
-            color_groups[group].append(square.square_id)
+    var container = get_node_or_null("../Board/SquaresContainer")
+    if container and container.get_child_count() > 0:
+        for i in container.get_child_count():
+            squares.append(container.get_child(i))
+    else:
+        for child in board.get_children():
+            if child.name.begins_with("Square_"):
+                squares.append(child)
+
+    if squares.is_empty():
+        push_error("BoardManager: no se encontraron casillas registrables")
+        return
 
     print("BoardManager: %d casillas registradas" % squares.size())
+
 
 # ─────────────────────────────────────────
 # CONEXIÓN DE SEÑALES
@@ -136,6 +143,9 @@ func _move_step_by_step(
 # ATERRIZAJE EN CASILLA
 # ─────────────────────────────────────────
 func _land_on_square(player_id: int, square_index: int) -> void:
+    if square_index < 0 or square_index >= squares.size():
+        GameEvents.square_effect_completed.emit(player_id)
+        return
     var square = squares[square_index]
 
     # Recoger monedas que estaban en la casilla
@@ -146,7 +156,10 @@ func _land_on_square(player_id: int, square_index: int) -> void:
         GameEvents.coins_collected_on_land.emit(player_id, square_index, picked)
 
     # Ejecutar el efecto de la casilla
-    square.on_player_land(PlayerManager.get_player(player_id))
+    if square.has_method("on_player_land"):
+        square.on_player_land(PlayerManager.get_player(player_id))
+    else:
+        GameEvents.square_effect_completed.emit(player_id)
 
 # ─────────────────────────────────────────
 # PASO POR GO
@@ -175,12 +188,14 @@ func place_banana(square_index: int) -> void:
     if bananas_on_board.has(square_index):
         return  # ya hay una banana aquí
     bananas_on_board[square_index] = true
-    squares[square_index].place_banana()
+    if square_index >= 0 and square_index < squares.size() and squares[square_index].has_method("place_banana"):
+        squares[square_index].place_banana()
     GameEvents.banana_placed.emit(square_index)
 
 func _remove_banana(square_index: int) -> void:
     bananas_on_board.erase(square_index)
-    squares[square_index].remove_banana()
+    if square_index >= 0 and square_index < squares.size() and squares[square_index].has_method("remove_banana"):
+        squares[square_index].remove_banana()
     GameEvents.banana_removed.emit(square_index)
 
 func _on_place_banana_on_property(player_id: int, count: int) -> void:
@@ -220,7 +235,8 @@ func _on_coins_placed(square_index: int, amount: int) -> void:
     if not coins_on_board.has(square_index):
         coins_on_board[square_index] = 0
     coins_on_board[square_index] += amount
-    squares[square_index].show_coins(amount)
+    if square_index >= 0 and square_index < squares.size() and squares[square_index].has_method("show_coins"):
+        squares[square_index].show_coins(amount)
     GameEvents.board_coins_updated.emit(square_index, coins_on_board[square_index])
 
 func _on_collect_all_board_coins(player_id: int) -> void:
@@ -228,7 +244,8 @@ func _on_collect_all_board_coins(player_id: int) -> void:
     var total = 0
     for idx in coins_on_board.keys():
         total += coins_on_board[idx]
-        squares[idx].hide_coins()
+        if idx >= 0 and idx < squares.size() and squares[idx].has_method("hide_coins"):
+            squares[idx].hide_coins()
     coins_on_board.clear()
     if total > 0:
         PlayerManager.get_player(player_id).add_coins(total)

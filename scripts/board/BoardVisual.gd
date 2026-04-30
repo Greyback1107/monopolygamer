@@ -270,7 +270,7 @@ func _make_border(size: Vector2) -> Node2D:
 func _short_name(full_name: String) -> String:
     return full_name.replace(" ", "\n")
 
-func get_square_position(idx: int) -> Vector2:
-    if idx >= 0 and idx < square_positions.size():
-        return square_positions[idx] + global_position
-    return Vector2.ZERO
+func get_square_position(square_index: int) -> Vector2:
+    if square_index < 0 or square_index >= square_positions.size():
+        return global_position
+    return global_position + square_positions[square_index]
