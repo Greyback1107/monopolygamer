@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://620s1ceqcyht"]
+
+[ext_resource type="Script" uid="uid://ba32ac7o6bw8e" path="res://scripts/scoring/EndGameScreen.gd" id="1_mfrfc"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1526223269]
+script = ExtResource("1_mfrfc")
+
+[node name="Background" type="ColorRect" parent="." unique_id=401152666]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1535599794]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PodiumContainer" type="HBoxContainer" parent="." unique_id=1125528168]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Place1" type="VBoxContainer" parent="PodiumContainer" unique_id=1949005732]
+layout_mode = 2
+
+[node name="MedalIcon" type="TextureRect" parent="PodiumContainer/Place1" unique_id=837652299]
+layout_mode = 2
+
+[node name="CharacterPortrait" type="TextureRect" parent="PodiumContainer/Place1" unique_id=521032242]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="PodiumContainer/Place1" unique_id=1919392555]
+layout_mode = 2
+
+[node name="ScoreBreakdown" type="VBoxContainer" parent="PodiumContainer/Place1" unique_id=2133467014]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="PodiumContainer/Place1/ScoreBreakdown" unique_id=639099364]
+layout_mode = 2
+
+[node name="PropertiesLabel" type="Label" parent="PodiumContainer/Place1/ScoreBreakdown" unique_id=1670983245]
+layout_mode = 2
+
+[node name="RaceLabel" type="Label" parent="PodiumContainer/Place1/ScoreBreakdown" unique_id=1685170013]
+layout_mode = 2
+
+[node name="CardsLabel" type="Label" parent="PodiumContainer/Place1/ScoreBreakdown" unique_id=112131352]
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="PodiumContainer/Place1/ScoreBreakdown" unique_id=1581116733]
+layout_mode = 2
+
+[node name="Place2" type="VBoxContainer" parent="PodiumContainer" unique_id=616285145]
+layout_mode = 2
+
+[node name="MedalIcon" type="TextureRect" parent="PodiumContainer/Place2" unique_id=1116573903]
+layout_mode = 2
+
+[node name="CharacterPortrait" type="TextureRect" parent="PodiumContainer/Place2" unique_id=1717897215]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="PodiumContainer/Place2" unique_id=686611990]
+layout_mode = 2
+
+[node name="ScoreBreakdown" type="VBoxContainer" parent="PodiumContainer/Place2" unique_id=1962402653]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="PodiumContainer/Place2/ScoreBreakdown" unique_id=2109582178]
+layout_mode = 2
+
+[node name="PropertiesLabel" type="Label" parent="PodiumContainer/Place2/ScoreBreakdown" unique_id=1809888408]
+layout_mode = 2
+
+[node name="RaceLabel" type="Label" parent="PodiumContainer/Place2/ScoreBreakdown" unique_id=460622090]
+layout_mode = 2
+
+[node name="CardsLabel" type="Label" parent="PodiumContainer/Place2/ScoreBreakdown" unique_id=17838540]
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="PodiumContainer/Place2/ScoreBreakdown" unique_id=995134759]
+layout_mode = 2
+
+[node name="Place3" type="VBoxContainer" parent="PodiumContainer" unique_id=1864962880]
+layout_mode = 2
+
+[node name="MedalIcon" type="TextureRect" parent="PodiumContainer/Place3" unique_id=534907387]
+layout_mode = 2
+
+[node name="CharacterPortrait" type="TextureRect" parent="PodiumContainer/Place3" unique_id=911551689]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="PodiumContainer/Place3" unique_id=1807792824]
+layout_mode = 2
+
+[node name="ScoreBreakdown" type="VBoxContainer" parent="PodiumContainer/Place3" unique_id=1067163021]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="PodiumContainer/Place3/ScoreBreakdown" unique_id=1828931368]
+layout_mode = 2
+
+[node name="PropertiesLabel" type="Label" parent="PodiumContainer/Place3/ScoreBreakdown" unique_id=309936607]
+layout_mode = 2
+
+[node name="RaceLabel" type="Label" parent="PodiumContainer/Place3/ScoreBreakdown" unique_id=1997338578]
+layout_mode = 2
+
+[node name="CardsLabel" type="Label" parent="PodiumContainer/Place3/ScoreBreakdown" unique_id=1987031850]
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="PodiumContainer/Place3/ScoreBreakdown" unique_id=338394714]
+layout_mode = 2
+
+[node name="Place4" type="VBoxContainer" parent="PodiumContainer" unique_id=887094517]
+layout_mode = 2
+
+[node name="MedalIcon" type="TextureRect" parent="PodiumContainer/Place4" unique_id=1717223527]
+layout_mode = 2
+
+[node name="CharacterPortrait" type="TextureRect" parent="PodiumContainer/Place4" unique_id=863326477]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="PodiumContainer/Place4" unique_id=1780225838]
+layout_mode = 2
+
+[node name="ScoreBreakdown" type="VBoxContainer" parent="PodiumContainer/Place4" unique_id=318801685]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="PodiumContainer/Place4/ScoreBreakdown" unique_id=1166703265]
+layout_mode = 2
+
+[node name="PropertiesLabel" type="Label" parent="PodiumContainer/Place4/ScoreBreakdown" unique_id=163813913]
+layout_mode = 2
+
+[node name="RaceLabel" type="Label" parent="PodiumContainer/Place4/ScoreBreakdown" unique_id=1633829398]
+layout_mode = 2
+
+[node name="CardsLabel" type="Label" parent="PodiumContainer/Place4/ScoreBreakdown" unique_id=1932949448]
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="PodiumContainer/Place4/ScoreBreakdown" unique_id=418785281]
+layout_mode = 2
+
+[node name="WinnerBanner" type="PanelContainer" parent="." unique_id=536124674]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinnerLabel" type="Label" parent="WinnerBanner" unique_id=933737572]
+layout_mode = 2
+
+[node name="PlayAgainButton" type="Button" parent="." unique_id=862697766]
+offset_right = 8.0
+offset_bottom = 8.0

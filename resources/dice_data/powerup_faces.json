@@ -1,0 +1,44 @@
+{
+  "faces": [
+    {
+      "id": "coins",
+      "label": "Monedas",
+      "icon": "coins",
+      "base_effect": "collect_coins",
+      "base_value": 3,
+      "weight": 2
+    },
+    {
+      "id": "green_shell",
+      "label": "Concha Verde",
+      "icon": "green_shell",
+      "base_effect": "target_next_player_drop",
+      "base_value": 3,
+      "weight": 1
+    },
+    {
+      "id": "spiny_shell",
+      "label": "Concha Espinosa",
+      "icon": "spiny_shell",
+      "base_effect": "target_any_player_drop",
+      "base_value": 3,
+      "weight": 1
+    },
+    {
+      "id": "lightning",
+      "label": "Rayo",
+      "icon": "lightning",
+      "base_effect": "all_players_drop",
+      "base_value": 1,
+      "weight": 1
+    },
+    {
+      "id": "banana",
+      "label": "Banana",
+      "icon": "banana",
+      "base_effect": "place_banana",
+      "base_value": 0,
+      "weight": 1
+    }
+  ]
+}

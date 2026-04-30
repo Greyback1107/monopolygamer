@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cgqhw258tcacg"]
+
+[ext_resource type="Script" uid="uid://ds150p5evx7hj" path="res://scripts/properties/BuyPanel.gd" id="1_xw0jt"]
+
+[node name="BuyPanel" type="PanelContainer" unique_id=102159304]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xw0jt")
+
+[node name="ColorBar" type="ColorRect" parent="." unique_id=427797958]
+layout_mode = 2
+
+[node name="PropertyNameLabel" type="Label" parent="." unique_id=1903606825]
+layout_mode = 2
+
+[node name="CostLabel" type="Label" parent="." unique_id=1833517902]
+layout_mode = 2
+
+[node name="RentInfoLabel" type="Label" parent="." unique_id=1889199820]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="." unique_id=1747053870]
+layout_mode = 2
+
+[node name="PlayerCoinsLabel" type="Label" parent="." unique_id=1519965002]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="." unique_id=1540928569]
+layout_mode = 2
+
+[node name="AutionButton" type="Button" parent="." unique_id=522457254]
+layout_mode = 2

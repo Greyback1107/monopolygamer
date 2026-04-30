@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bsbqoskrguix5"]
+
+[ext_resource type="Script" uid="uid://djicevu803sww" path="res://scripts/dice/DiceDisplay.gd" id="1_41g1p"]
+[ext_resource type="PackedScene" uid="uid://b1muvmp5c1oto" path="res://scenes/dice/DieVisual.tscn" id="2_n1l51"]
+
+[node name="DiceDisplay" type="Node2D" unique_id=783733447]
+script = ExtResource("1_41g1p")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=15645732]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=418459889]
+layout_mode = 2
+
+[node name="DiceRow" type="HBoxContainer" parent="Panel" unique_id=676409330]
+layout_mode = 2
+
+[node name="NumericContainer" type="VBoxContainer" parent="Panel/DiceRow" unique_id=398044023]
+layout_mode = 2
+
+[node name="NumericDieVisual" parent="Panel/DiceRow/NumericContainer" unique_id=144696427 instance=ExtResource("2_n1l51")]
+
+[node name="NumericTypeLabel" type="Label" parent="Panel/DiceRow/NumericContainer" unique_id=619473741]
+layout_mode = 2
+
+[node name="PowerUpContainer" type="VBoxContainer" parent="Panel/DiceRow" unique_id=1685227864]
+layout_mode = 2
+
+[node name="PowerUpDieVisual" parent="Panel/DiceRow/PowerUpContainer" unique_id=1527765106 instance=ExtResource("2_n1l51")]
+
+[node name="PowerUpTypeLabel" type="Label" parent="Panel/DiceRow/PowerUpContainer" unique_id=2126556908]
+layout_mode = 2
+
+[node name="OrderPanel" type="VBoxContainer" parent="Panel" unique_id=272154459]
+layout_mode = 2
+
+[node name="OrderLabel" type="Label" parent="Panel/OrderPanel" unique_id=916395975]
+layout_mode = 2
+
+[node name="MoveFirstButton" type="Button" parent="Panel/OrderPanel" unique_id=1167255074]
+layout_mode = 2
+
+[node name="PowerFirstButton" type="Button" parent="Panel/OrderPanel" unique_id=677493382]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=534603960]

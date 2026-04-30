@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bpbqvsfrj4wwv"]
+
+[ext_resource type="Script" uid="uid://c7rck8mrn45lc" path="res://scripts/menus/MainMenu.gd" id="1_wlpbi"]
+
+[node name="MainMenu" type="Control" unique_id=241771518]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wlpbi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=626512757]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2107928632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1182305044]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+
+[node name="VboxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1283138834]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/VboxContainer" unique_id=1393965456]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 2
+text = "Monopoly Gamer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/PanelContainer/VboxContainer" unique_id=1475741972]
+custom_minimum_size = Vector2(260, 45)
+layout_mode = 2
+text = "Nuevo Juego"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer/PanelContainer/VboxContainer" unique_id=985623358]
+custom_minimum_size = Vector2(260, 45)
+layout_mode = 2
+text = "Opciones"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/VboxContainer" unique_id=1724322532]
+custom_minimum_size = Vector2(260, 45)
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VboxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VboxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VboxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

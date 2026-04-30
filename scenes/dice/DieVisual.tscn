@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b1muvmp5c1oto"]
+
+[ext_resource type="Script" uid="uid://bfrl5cy02lr2y" path="res://scripts/dice/DieVisual.gd" id="1_57o2s"]
+
+[node name="DieVisual" type="Node2D" unique_id=144696427]
+script = ExtResource("1_57o2s")
+
+[node name="DieFace" type="Node2D" parent="." unique_id=1303223230]
+
+[node name="ShakeAnimation" type="AnimationPlayer" parent="." unique_id=1270019951]
+
+[node name="Resultcontainer" type="Node2D" parent="." unique_id=1939289703]
+script = ExtResource("1_57o2s")
+die_type = null
+die_size = null
+
+[node name="GlowRect" type="ColorRect" parent="Resultcontainer" unique_id=313330975]
+offset_right = 40.0
+offset_bottom = 40.0

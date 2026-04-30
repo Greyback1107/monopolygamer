@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dr21a0214di70"]
+
+[ext_resource type="Script" uid="uid://chwkh1gio03ro" path="res://scripts/dice/PowerUpDie.gd" id="1_x14nc"]
+
+[node name="PowerUpDie" type="Node2D" unique_id=806022900]
+script = ExtResource("1_x14nc")
+
+[node name="DieSprite" type="Sprite2D" parent="." unique_id=1868124171]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DieSprite" unique_id=397366146]
+
+[node name="FaceLabel" type="Label" parent="." unique_id=1995663126]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FaceIcon" type="Sprite2D" parent="." unique_id=349003680]
+
+[node name="RollButton" type="Button" parent="." unique_id=742435902]
+offset_right = 8.0
+offset_bottom = 8.0

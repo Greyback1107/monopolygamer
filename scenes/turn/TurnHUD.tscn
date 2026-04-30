@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bcbhkbpxlt7s4"]
+
+[ext_resource type="Script" uid="uid://kisnc6ii3xjq" path="res://scripts/turn/TurnHUD.gd" id="1_ycyna"]
+
+[node name="TurnHUD" type="CanvasLayer" unique_id=1211390322]
+layer = 10
+script = ExtResource("1_ycyna")
+
+[node name="HUDPanel" type="PanelContainer" parent="." unique_id=1290761761]
+custom_minimum_size = Vector2(300, 150)
+offset_right = 300.0
+offset_bottom = 150.0
+
+[node name="TopRow" type="HBoxContainer" parent="HUDPanel" unique_id=414137064]
+layout_mode = 2
+
+[node name="TurnIndicator" type="ColorRect" parent="HUDPanel/TopRow" unique_id=906137337]
+layout_mode = 2
+
+[node name="TurnLabel" type="Label" parent="HUDPanel/TopRow" unique_id=313197004]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RacesLeftLabel" type="Label" parent="HUDPanel/TopRow" unique_id=464009406]
+layout_mode = 2
+
+[node name="StateLabel" type="Label" parent="HUDPanel" unique_id=313616891]
+layout_mode = 2
+
+[node name="CoinsRow" type="HBoxContainer" parent="HUDPanel" unique_id=2038244424]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CoinIcon" type="TextureRect" parent="HUDPanel/CoinsRow" unique_id=453249924]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="HUDPanel/CoinsRow" unique_id=1510507503]
+layout_mode = 2
+
+[node name="DiceResultRow" type="HBoxContainer" parent="HUDPanel" unique_id=1174539639]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="NumericDieDisplay" type="PanelContainer" parent="HUDPanel/DiceResultRow" unique_id=2028774244]
+layout_mode = 2
+
+[node name="NumericLabel" type="Label" parent="HUDPanel/DiceResultRow/NumericDieDisplay" unique_id=1534224100]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUDPanel/DiceResultRow" unique_id=1138443456]
+layout_mode = 2
+
+[node name="PowerUpLabel" type="Label" parent="HUDPanel/DiceResultRow/PanelContainer" unique_id=1134912979]
+layout_mode = 2
+
+[node name="RollButton" type="Button" parent="HUDPanel" unique_id=1168461874]
+layout_mode = 2
+
+[node name="PlayerIndicators" type="HBoxContainer" parent="." unique_id=1441546291]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_right = 100.0
+offset_bottom = 46.0
+grow_vertical = 0
+
+[node name="PlayerDot1" type="VBoxContainer" parent="PlayerIndicators" unique_id=893145319]
+layout_mode = 2
+
+[node name="CharacterIcon" type="TextureRect" parent="PlayerIndicators/PlayerDot1" unique_id=170497911]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="PlayerIndicators/PlayerDot1" unique_id=985395792]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="PlayerIndicators/PlayerDot1" unique_id=1348704875]
+layout_mode = 2
+
+[node name="ScorePanel" type="PanelContainer" parent="." unique_id=367778128]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="ScoreList" type="VBoxContainer" parent="ScorePanel" unique_id=861561290]
+layout_mode = 2
+
+[node name="PlayerScoreRow" type="HBoxContainer" parent="ScorePanel/ScoreList" unique_id=2139780833]
+layout_mode = 2
+
+[node name="ColorDot" type="ColorRect" parent="ScorePanel/ScoreList/PlayerScoreRow" unique_id=940300119]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="ScorePanel/ScoreList/PlayerScoreRow" unique_id=1403153084]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="ScorePanel/ScoreList/PlayerScoreRow" unique_id=1983453280]
+layout_mode = 2

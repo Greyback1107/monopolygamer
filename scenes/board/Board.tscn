@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cfpcj0gf8dsic"]
+
+[ext_resource type="Script" uid="uid://b76ri5rg0valf" path="res://scripts/board/BoardVisual.gd" id="1_6puts"]
+
+[node name="Board" type="Node2D" unique_id=870065626]
+script = ExtResource("1_6puts")
+
+[node name="BoardBackgroud" type="Sprite2D" parent="." unique_id=1978186975]
+
+[node name="SquaresContainer" type="Node2D" parent="." unique_id=839748906]
+
+[node name="BananaLayer" type="Node2D" parent="." unique_id=1044079869]
+
+[node name="TokenLayer" type="Node2D" parent="." unique_id=405286138]
+
+[node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=1725256179]

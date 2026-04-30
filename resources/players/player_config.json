@@ -1,0 +1,32 @@
+{
+  "slots": [
+    {
+      "slot_id": 0,
+      "default_name": "Jugador 1",
+      "color": "#e52521",
+      "start_coins": 10,
+      "start_square": 0
+    },
+    {
+      "slot_id": 1,
+      "default_name": "Jugador 2",
+      "color": "#4a9f3f",
+      "start_coins": 10,
+      "start_square": 0
+    },
+    {
+      "slot_id": 2,
+      "default_name": "Jugador 3",
+      "color": "#5b9bd5",
+      "start_coins": 10,
+      "start_square": 0
+    },
+    {
+      "slot_id": 3,
+      "default_name": "Jugador 4",
+      "color": "#f5a623",
+      "start_coins": 10,
+      "start_square": 0
+    }
+  ]
+}

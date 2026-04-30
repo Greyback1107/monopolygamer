@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c7k63yd0oo7ln"]
+
+[ext_resource type="Script" uid="uid://cb2ho8lxrxaun" path="res://scripts/characters/CharacterCard.gd" id="1_01r17"]
+
+[node name="CharacterCard" type="Node2D" unique_id=1278399818]
+script = ExtResource("1_01r17")
+
+[node name="CardBackground" type="NinePatchRect" parent="." unique_id=1457708730]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Portrait" type="TextureRect" parent="." unique_id=323042956]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NameLabel" type="Label" parent="." unique_id=1131892839]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SuperStarPanel" type="PanelContainer" parent="." unique_id=813779087]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StarIcon" type="TextureRect" parent="SuperStarPanel" unique_id=1639561311]
+layout_mode = 2
+
+[node name="SuperStarDescription" type="Label" parent="SuperStarPanel" unique_id=901365079]
+layout_mode = 2
+
+[node name="PowerUpPanel" type="PanelContainer" parent="." unique_id=881001804]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PowerUpIcon" type="TextureRect" parent="PowerUpPanel" unique_id=1092690287]
+layout_mode = 2
+
+[node name="PowerUpDescription" type="Label" parent="PowerUpPanel" unique_id=874521540]
+layout_mode = 2
+
+[node name="SkipIndicator" type="TextureRect" parent="." unique_id=1066300137]
+offset_right = 40.0
+offset_bottom = 40.0

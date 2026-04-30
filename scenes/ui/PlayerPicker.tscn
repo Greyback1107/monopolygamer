@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dlanvydatk7tg"]
+
+[ext_resource type="Script" uid="uid://cjjplvpp6xmee" path="res://scripts/ui/PlayerPicker.gd" id="1_t4hss"]
+
+[node name="PlayerPicker" type="PanelContainer" unique_id=2088274769]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_t4hss")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=449512444]
+layout_mode = 2
+
+[node name="PlayersGrid" type="GridContainer" parent="." unique_id=1999718948]
+layout_mode = 2
+
+[node name="ButtonPlayer1" type="Button" parent="PlayersGrid" unique_id=1943441382]
+layout_mode = 2
+
+[node name="ButtonPlayer2" type="Button" parent="PlayersGrid" unique_id=244182457]
+layout_mode = 2
+
+[node name="ButtonPlayer3" type="Button" parent="PlayersGrid" unique_id=2087152482]
+layout_mode = 2
+
+[node name="ButtonPlayer4" type="Button" parent="PlayersGrid" unique_id=706354367]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="." unique_id=732395822]
+layout_mode = 2

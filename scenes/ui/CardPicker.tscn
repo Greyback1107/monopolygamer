@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dnpt1b42snrv5"]
+
+[ext_resource type="Script" uid="uid://c1lq4g5k0p2dp" path="res://scripts/ui/CardPicker.gd" id="1_ademu"]
+
+[node name="CardPicker" type="PanelContainer" unique_id=47849591]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ademu")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=566436248]
+layout_mode = 2
+
+[node name="CardsContainer" type="HBoxContainer" parent="." unique_id=553506090]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="." unique_id=952596173]
+layout_mode = 2

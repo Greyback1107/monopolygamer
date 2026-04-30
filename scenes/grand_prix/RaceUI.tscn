@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://ctfur13psen8y"]
+
+[ext_resource type="Script" uid="uid://b2m7sgq7c64hs" path="res://scripts/grand_prix/RaceUI.gd" id="1_2ypjf"]
+[ext_resource type="PackedScene" uid="uid://bqattqcoagv0e" path="res://scenes/grand_prix/GrandPrixCard.tscn" id="2_jf8ux"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1979157628]
+script = ExtResource("1_2ypjf")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=924684495]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RacePanel" type="PanelContainer" parent="." unique_id=478043558]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="RacePanel" unique_id=949850181]
+layout_mode = 2
+
+[node name="GrandPrixCard" parent="RacePanel" unique_id=424365875 instance=ExtResource("2_jf8ux")]
+
+[node name="ParticipantsContainer" type="VBoxContainer" parent="RacePanel" unique_id=934950949]
+layout_mode = 2
+
+[node name="PlayerRow_1" type="HBoxContainer" parent="RacePanel/ParticipantsContainer" unique_id=909819514]
+layout_mode = 2
+
+[node name="CharacterIcon" type="TextureRect" parent="RacePanel/ParticipantsContainer/PlayerRow_1" unique_id=1247887664]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="RacePanel/ParticipantsContainer/PlayerRow_1" unique_id=882639109]
+layout_mode = 2
+
+[node name="JoinButton" type="Button" parent="RacePanel/ParticipantsContainer/PlayerRow_1" unique_id=1082712080]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="RacePanel/ParticipantsContainer/PlayerRow_1" unique_id=1115257763]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="RacePanel/ParticipantsContainer/PlayerRow_1" unique_id=1760731852]
+layout_mode = 2
+
+[node name="PlayerRow_2" type="HBoxContainer" parent="RacePanel/ParticipantsContainer" unique_id=123173022]
+layout_mode = 2
+
+[node name="CharacterIcon" type="TextureRect" parent="RacePanel/ParticipantsContainer/PlayerRow_2" unique_id=367647157]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="RacePanel/ParticipantsContainer/PlayerRow_2" unique_id=632251794]
+layout_mode = 2
+
+[node name="JoinButton" type="Button" parent="RacePanel/ParticipantsContainer/PlayerRow_2" unique_id=1590579627]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="RacePanel/ParticipantsContainer/PlayerRow_2" unique_id=569634428]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="RacePanel/ParticipantsContainer/PlayerRow_2" unique_id=1009932498]
+layout_mode = 2
+
+[node name="PlayerRow_3" type="HBoxContainer" parent="RacePanel/ParticipantsContainer" unique_id=38368683]
+layout_mode = 2
+
+[node name="CharacterIcon" type="TextureRect" parent="RacePanel/ParticipantsContainer/PlayerRow_3" unique_id=982301047]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="RacePanel/ParticipantsContainer/PlayerRow_3" unique_id=556423513]
+layout_mode = 2
+
+[node name="JoinButton" type="Button" parent="RacePanel/ParticipantsContainer/PlayerRow_3" unique_id=1671550420]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="RacePanel/ParticipantsContainer/PlayerRow_3" unique_id=1407986525]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="RacePanel/ParticipantsContainer/PlayerRow_3" unique_id=406470071]
+layout_mode = 2
+
+[node name="RollAllButton" type="Button" parent="RacePanel" unique_id=413731482]
+layout_mode = 2
+
+[node name="ResultsPanel" type="VBoxContainer" parent="RacePanel" unique_id=7445449]
+layout_mode = 2
+
+[node name="RankLabel_1" type="Label" parent="RacePanel/ResultsPanel" unique_id=1385738441]
+layout_mode = 2
+
+[node name="RankLabel_2" type="Label" parent="RacePanel/ResultsPanel" unique_id=1014635060]
+layout_mode = 2
+
+[node name="RankLabel_3" type="Label" parent="RacePanel/ResultsPanel" unique_id=1743493433]
+layout_mode = 2
+
+[node name="PrizesLabel" type="Label" parent="RacePanel/ResultsPanel" unique_id=287977118]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="RacePanel" unique_id=227039734]
+layout_mode = 2
+
+[node name="FinalRaceLabel" type="Label" parent="." unique_id=844764880]
+offset_right = 40.0
+offset_bottom = 23.0

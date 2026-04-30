@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dli5blgrmkux2"]
+
+[ext_resource type="Script" uid="uid://bs77sendvnpbb" path="res://scripts/menus/PlayerSetup.gd" id="1_bi265"]
+[ext_resource type="PackedScene" uid="uid://dd8dk4ai6212o" path="res://scenes/menus/PlayerSlot.tscn" id="1_wvnt5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bi265"]
+
+[node name="PlayerSetup" type="Control" unique_id=969425126]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bi265")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=91193473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=23950910]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=984265443]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 7
+text = "Seleccion de Personaje"
+label_settings = SubResource("LabelSettings_bi265")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotsRow1" type="HBoxContainer" parent="VBoxContainer" unique_id=2045158388]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="PlayerSlot" parent="VBoxContainer/SlotsRow1" unique_id=980565380 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="PlayerSlot2" parent="VBoxContainer/SlotsRow1" unique_id=503105327 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="SlotsRow2" type="HBoxContainer" parent="VBoxContainer" unique_id=1861949649]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="PlayerSlot3" parent="VBoxContainer/SlotsRow2" unique_id=1871474720 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="PlayerSlot4" parent="VBoxContainer/SlotsRow2" unique_id=214882750 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="VBoxContainer" unique_id=964051015]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackButton" type="Button" parent="VBoxContainer/BottomBar" unique_id=973858629]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "← Volver"
+
+[node name="ValidationLabel" type="Label" parent="VBoxContainer/BottomBar" unique_id=1752135670]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer/BottomBar" unique_id=1437634340]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "¡Jugar! →"
+
+[node name="CharacterInfoPanel" type="PanelContainer" parent="." unique_id=984852779]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="CharNameLabel" type="Label" parent="CharacterInfoPanel" unique_id=432799348]
+layout_mode = 2
+
+[node name="SuperStarLabel" type="Label" parent="CharacterInfoPanel" unique_id=806655548]
+layout_mode = 2
+
+[node name="PowerUpLabel" type="Label" parent="CharacterInfoPanel" unique_id=1237219739]
+layout_mode = 2

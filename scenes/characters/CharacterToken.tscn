@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bvqu8thqgn5g0"]
+
+[ext_resource type="Script" uid="uid://8tbkiq874f62" path="res://scripts/characters/CharacterToken.gd" id="1_mr2wm"]
+
+[node name="CharacterToken" type="Node2D" unique_id=1623855147]
+script = ExtResource("1_mr2wm")
+
+[node name="TokenCircle" type="Node2D" parent="." unique_id=1582156418]
+
+[node name="InitialsLabel" type="Label" parent="." unique_id=891076701]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CoinBubble" type="CanvasLayer" parent="." unique_id=193345764]
+
+[node name="CoinLabel" type="Label" parent="CoinBubble" unique_id=2145490695]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BubbleBG" type="ColorRect" parent="CoinBubble" unique_id=1320721764]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1635278859]

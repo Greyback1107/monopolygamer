@@ -1,0 +1,246 @@
+{
+  "squares": [
+    {
+      "id": 0,
+      "name": "Salida",
+      "type": "GO",
+      "coins_on_pass": 2
+    },
+    {
+      "id": 1,
+      "name": "Mario Kart Stadium",
+      "type": "PROPERTY",
+      "color_group": "brown",
+      "buy_cost": 1,
+      "rent_base": 1,
+      "rent_double": 2,
+      "point_value": 10
+    },
+    {
+      "id": 2,
+      "name": "Boost Pad",
+      "type": "BOOST_PAD"
+    },
+    {
+      "id": 3,
+      "name": "Water Park",
+      "type": "PROPERTY",
+      "color_group": "brown",
+      "buy_cost": 1,
+      "rent_base": 1,
+      "rent_double": 2,
+      "point_value": 10
+    },
+    {
+      "id": 4,
+      "name": "Item Box",
+      "type": "ITEM_BOX"
+    },
+    {
+      "id": 5,
+      "name": "Sweet Sweet Canyon",
+      "type": "PROPERTY",
+      "color_group": "light_blue",
+      "buy_cost": 1,
+      "rent_base": 1,
+      "rent_double": 2,
+      "point_value": 10
+    },
+    {
+      "id": 6,
+      "name": "Super Star",
+      "type": "SUPER_STAR"
+    },
+    {
+      "id": 7,
+      "name": "Thwomp Ruins",
+      "type": "PROPERTY",
+      "color_group": "light_blue",
+      "buy_cost": 1,
+      "rent_base": 1,
+      "rent_double": 2,
+      "point_value": 10
+    },
+    {
+      "id": 8,
+      "name": "En la cárcel / De visita nada más",
+      "type": "jail",
+      "color": "#708090"
+    },
+    {
+      "id": 9,
+      "name": "Mario Circuit",
+      "type": "PROPERTY",
+      "color_group": "magenta",
+      "buy_cost": 2,
+      "rent_base": 2,
+      "rent_double": 4,
+      "point_value": 20
+    },
+    {
+      "id": 10,
+      "name": "Boost Pad",
+      "type": "BOOST_PAD"
+    },
+    {
+      "id": 11,
+      "name": "Tad Harbor",
+      "type": "PROPERTY",
+      "color_group": "magenta",
+      "buy_cost": 2,
+      "rent_base": 2,
+      "rent_double": 4,
+      "point_value": 20
+    },
+    {
+      "id": 12,
+      "name": "Thwomp",
+      "type": "THWOMP"
+    },
+    {
+      "id": 13,
+      "name": "Twisted Mansion",
+      "type": "PROPERTY",
+      "color_group": "orange",
+      "buy_cost": 2,
+      "rent_base": 2,
+      "rent_double": 4,
+      "point_value": 20
+    },
+    {
+      "id": 14,
+      "name": "Super Star",
+      "type": "SUPER_STAR"
+    },
+    {
+      "id": 15,
+      "name": "Shy Guy Falls",
+      "type": "PROPERTY",
+      "color_group": "orange",
+      "buy_cost": 2,
+      "rent_base": 2,
+      "rent_double": 4,
+      "point_value": 20
+    },
+    {
+      "id": 16,
+      "name": "Parada Libre"
+    },
+    {
+      "id": 17,
+      "name": "Sunshine Airport",
+      "type": "PROPERTY",
+      "color_group": "red",
+      "buy_cost": 3,
+      "rent_base": 3,
+      "rent_double": 6,
+      "point_value": 30
+    },
+    {
+      "id": 18,
+      "name": "Boost Pad",
+      "type": "BOOST_PAD"
+    },
+    {
+      "id": 19,
+      "name": "Dolphin Shoals",
+      "type": "PROPERTY",
+      "color_group": "red",
+      "buy_cost": 3,
+      "rent_base": 3,
+      "rent_double": 6,
+      "point_value": 30
+    },
+    {
+      "id": 20,
+      "name": "Item Box",
+      "type": "ITEM_BOX"
+    },
+    {
+      "id": 21,
+      "name": "Electrodome",
+      "type": "PROPERTY",
+      "color_group": "yellow",
+      "buy_cost": 3,
+      "rent_base": 3,
+      "rent_double": 6,
+      "point_value": 30
+    },
+    {
+      "id": 22,
+      "name": "Super Star",
+      "type": "SUPER_STAR"
+    },
+    {
+      "id": 23,
+      "name": "Mount Wario",
+      "type": "PROPERTY",
+      "color_group": "yellow",
+      "buy_cost": 3,
+      "rent_base": 3,
+      "rent_double": 6,
+      "point_value": 30
+    },
+    {
+      "id": 24,
+      "name": "Ve a la Carcel",
+      "type": "punishment",
+      "color": "#708090"
+    },
+    {
+      "id": 25,
+      "name": "Cloudtop Cruise",
+      "type": "PROPERTY",
+      "color_group": "green",
+      "buy_cost": 4,
+      "rent_base": 4,
+      "rent_double": 8,
+      "point_value": 40
+    },
+    {
+      "id": 26,
+      "name": "Boost Pad",
+      "type": "BOOST_PAD"
+    },
+    {
+      "id": 27,
+      "name": "Bone-Dry Dunes",
+      "type": "PROPERTY",
+      "color_group": "green",
+      "buy_cost": 4,
+      "rent_base": 4,
+      "rent_double": 8,
+      "point_value": 40
+    },
+    {
+      "id": 28,
+      "name": "Thwomp",
+      "type": "THWOMP"
+    },
+    {
+      "id": 29,
+      "name": "Bowser's Castle",
+      "type": "PROPERTY",
+      "color_group": "blue",
+      "buy_cost": 5,
+      "rent_base": 5,
+      "rent_double": 10,
+      "point_value": 50
+    },
+    {
+      "id": 30,
+      "name": "Super Star",
+      "type": "SUPER_STAR"
+    },
+    {
+      "id": 31,
+      "name": "Rainbow Road",
+      "type": "PROPERTY",
+      "color_group": "blue",
+      "buy_cost": 5,
+      "rent_base": 5,
+      "rent_double": 10,
+      "point_value": 50
+    }
+  ]
+}

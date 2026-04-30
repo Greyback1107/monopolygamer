@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dli5blgrmkux2"]
+
+[ext_resource type="Script" uid="uid://bs77sendvnpbb" path="res://scripts/menus/PlayerSetup.gd" id="1_bi265"]
+[ext_resource type="PackedScene" uid="uid://dd8dk4ai6212o" path="res://scenes/menus/PlayerSlot.tscn" id="1_wvnt5"]
+
+[node name="PlayerSetup" type="Control" unique_id=969425126]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bi265")
+
+[node name="Background" type="ColorRect" parent="." unique_id=91193473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="." unique_id=984265443]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SlotsContainer" type="GridContainer" parent="." unique_id=639314284]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="PlayerSlot" parent="SlotsContainer" unique_id=980565380 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="PlayerSlot2" parent="SlotsContainer" unique_id=503105327 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="PlayerSlot3" parent="SlotsContainer" unique_id=1871474720 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="PlayerSlot4" parent="SlotsContainer" unique_id=214882750 instance=ExtResource("1_wvnt5")]
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="." unique_id=964051015]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BackButton" type="Button" parent="BottomBar" unique_id=973858629]
+layout_mode = 2
+
+[node name="ValidationLabel" type="Label" parent="BottomBar" unique_id=1752135670]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="BottomBar" unique_id=1437634340]
+layout_mode = 2
+
+[node name="CharacterInfoPanel" type="PanelContainer" parent="." unique_id=984852779]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharNameLabel" type="Label" parent="CharacterInfoPanel" unique_id=432799348]
+layout_mode = 2
+
+[node name="SuperStarLabel" type="Label" parent="CharacterInfoPanel" unique_id=806655548]
+layout_mode = 2
+
+[node name="PowerUpLabel" type="Label" parent="CharacterInfoPanel" unique_id=1237219739]
+layout_mode = 2

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dxwmx5b7knttr"]
+
+[ext_resource type="Script" uid="uid://dq816sq74a8be" path="res://scripts/board/Square.gd" id="1_raao1"]
+
+[node name="Square" type="Node2D" unique_id=2082480]
+script = ExtResource("1_raao1")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1766310489]
+
+[node name="Label" type="Label" parent="." unique_id=94395459]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CostLabel" type="Label" parent="." unique_id=1247576820]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorBar" type="ColorRect" parent="." unique_id=582694112]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TokenContainer" type="Node2D" parent="." unique_id=1872774723]
+
+[node name="Slot1" type="Marker2D" parent="TokenContainer" unique_id=1392220362]
+
+[node name="Slot2" type="Marker2D" parent="TokenContainer" unique_id=941888872]
+
+[node name="Slot3" type="Marker2D" parent="TokenContainer" unique_id=2047419380]
+
+[node name="Slot4" type="Marker2D" parent="TokenContainer" unique_id=220731064]
+
+[node name="BananaToken" type="Sprite2D" parent="." unique_id=1632991623]
+
+[node name="HighlightRect" type="ColorRect" parent="." unique_id=918781895]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ClickArea" type="Area2D" parent="." unique_id=628413728]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=2145203502]

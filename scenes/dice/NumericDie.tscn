@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dxocoplao38wn"]
+
+[ext_resource type="Script" uid="uid://ueljjs836cty" path="res://scripts/dice/NumericDie.gd" id="1_ou84u"]
+
+[node name="NumericDie" type="Node2D" unique_id=373354575]
+script = ExtResource("1_ou84u")
+
+[node name="DieSprite" type="Sprite2D" parent="." unique_id=2076925689]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DieSprite" unique_id=1175323998]
+
+[node name="ResultLabel" type="Label" parent="." unique_id=724047249]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RollButton" type="Button" parent="." unique_id=1085815825]
+offset_right = 8.0
+offset_bottom = 8.0

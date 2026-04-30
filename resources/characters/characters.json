@@ -1,0 +1,209 @@
+{
+  "characters": [
+    {
+      "id": "mario",
+      "name": "Mario",
+      "color": "#e52521",
+      "starting_coins": 10,
+      "availability": "base",
+      "superstar_ability": {
+        "description": "Recoge 3 monedas del banco y lanza el dado numérico de nuevo.",
+        "actions": [
+          { "type": "collect_coins", "value": 3, "source": "bank" },
+          { "type": "bonus_roll", "die": "numeric" }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "coins",
+        "description": "En vez del efecto base, recoge 3 monedas Y lanza el dado numérico de nuevo.",
+        "actions": [
+          { "type": "collect_coins", "value": 3, "source": "bank" },
+          { "type": "bonus_roll", "die": "numeric" }
+        ]
+      }
+    },
+    {
+      "id": "peach",
+      "name": "Princess Peach",
+      "color": "#f8a8c8",
+      "starting_coins": 10,
+      "availability": "base",
+      "superstar_ability": {
+        "description": "Lanza el dado de Power-Up de nuevo y ejecuta la acción resultante.",
+        "actions": [
+          { "type": "bonus_roll", "die": "powerup" }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "spiny_shell",
+        "description": "En vez de elegir 1 jugador, AMBOS otros jugadores sueltan 3 monedas.",
+        "actions": [
+          { "type": "all_others_drop", "value": 3, "exclude_self": true }
+        ]
+      }
+    },
+    {
+      "id": "luigi",
+      "name": "Luigi",
+      "color": "#4a9f3f",
+      "starting_coins": 10,
+      "availability": "base",
+      "superstar_ability": {
+        "description": "Puedes moverte a la propiedad sin dueño más barata y comprarla o subastarla.",
+        "actions": [
+          { "type": "move_to_cheapest_property" }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "green_shell",
+        "description": "En vez del efecto base, tú eliges a qué jugador afecta (adelante O atrás).",
+        "actions": [
+          { "type": "target_choice_drop", "value": 3, "direction": "any" }
+        ]
+      }
+    },
+    {
+      "id": "toad",
+      "name": "Toad",
+      "color": "#5b9bd5",
+      "starting_coins": 10,
+      "availability": "base",
+      "superstar_ability": {
+        "description": "Puedes soltar hasta 5 monedas y avanzar esa cantidad de casillas.",
+        "actions": [
+          { "type": "spend_coins_to_move", "max_coins": 5 }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "coins",
+        "description": "En vez de recoger 3 monedas del banco, recoge 3 monedas de CADA otro jugador.",
+        "actions": [
+          { "type": "steal_from_all", "value": 3 }
+        ]
+      }
+    },
+    {
+      "id": "bowser",
+      "name": "Bowser",
+      "color": "#8b4513",
+      "starting_coins": 10,
+      "availability": "expansion",
+      "superstar_ability": {
+        "description": "Roba 4 monedas de cualquier jugador.",
+        "actions": [
+          { "type": "steal_from_target", "value": 4 }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "spiny_shell",
+        "description": "El jugador con MÁS monedas suelta 3. Todos los demás (excepto tú) sueltan 1.",
+        "actions": [
+          { "type": "richest_drops", "value": 3 },
+          { "type": "others_drop", "value": 1, "exclude_self": true }
+        ]
+      }
+    },
+    {
+      "id": "yoshi",
+      "name": "Yoshi",
+      "color": "#4cbb17",
+      "starting_coins": 10,
+      "availability": "expansion",
+      "superstar_ability": {
+        "description": "Recoge TODAS las monedas que haya en el tablero.",
+        "actions": [
+          { "type": "collect_all_board_coins" }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "green_shell",
+        "description": "El jugador frente a ti suelta 3 monedas. Las recoges inmediatamente SIN moverte.",
+        "actions": [
+          { "type": "next_player_drops", "value": 3 },
+          { "type": "collect_dropped_coins", "move": false }
+        ]
+      }
+    },
+    {
+      "id": "donkey_kong",
+      "name": "Donkey Kong",
+      "color": "#8b6914",
+      "starting_coins": 10,
+      "availability": "expansion",
+      "superstar_ability": {
+        "description": "Puedes colocar una banana en 2 de tus propiedades.",
+        "actions": [
+          { "type": "place_bananas_on_owned", "count": 2 }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "banana",
+        "description": "Puedes retirar cualquier cantidad de bananas del tablero. Recibes 3 monedas por cada una.",
+        "actions": [
+          { "type": "remove_bananas_for_coins", "coins_per_banana": 3 }
+        ]
+      }
+    },
+    {
+      "id": "rosalina",
+      "name": "Rosalina",
+      "color": "#6b8fcf",
+      "starting_coins": 10,
+      "availability": "expansion",
+      "superstar_ability": {
+        "description": "Puedes moverte a la siguiente casilla de Super Estrella. Recoge monedas al pasar.",
+        "actions": [
+          { "type": "move_to_next_superstar", "collect_coins_on_path": true }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "coins",
+        "description": "En vez de recoger del banco, tomas 1 moneda de CADA otro jugador.",
+        "actions": [
+          { "type": "steal_from_all", "value": 1 }
+        ]
+      }
+    },
+    {
+      "id": "metal_mario",
+      "name": "Metal Mario",
+      "color": "#a8a9ad",
+      "starting_coins": 10,
+      "availability": "expansion",
+      "superstar_ability": {
+        "description": "Todos los demás jugadores se saltan su próximo lanzamiento del dado de Power-Up.",
+        "actions": [
+          { "type": "skip_others_powerup_roll" }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "lightning",
+        "description": "Después de que todos sueltan 1 moneda, lanzas el dado numérico y te mueves de nuevo.",
+        "actions": [
+          { "type": "all_others_drop", "value": 1, "exclude_self": true },
+          { "type": "bonus_roll", "die": "numeric" }
+        ]
+      }
+    },
+    {
+      "id": "shy_guy",
+      "name": "Shy Guy",
+      "color": "#e8001c",
+      "starting_coins": 10,
+      "availability": "expansion",
+      "superstar_ability": {
+        "description": "Puedes intercambiar tu posición en el tablero con la de cualquier otro jugador.",
+        "actions": [
+          { "type": "swap_position_with_target" }
+        ]
+      },
+      "powerup_boost": {
+        "triggers_on": "spiny_shell",
+        "description": "En vez del efecto base, robas 2 monedas del jugador que elijas.",
+        "actions": [
+          { "type": "steal_from_target", "value": 2 }
+        ]
+      }
+    }
+  ]
+}

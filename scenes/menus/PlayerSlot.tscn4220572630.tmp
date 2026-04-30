@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dd8dk4ai6212o"]
+
+[ext_resource type="Script" uid="uid://bdeiynh033c86" path="res://scripts/menus/PlayerSlot.gd" id="1_7bewx"]
+
+[node name="PlayerSlot" type="PanelContainer" unique_id=1027225368]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("1_7bewx")
+
+[node name="SlotHeader" type="HBoxContainer" parent="." unique_id=1120007795]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerNumberLabel" type="Label" parent="SlotHeader" unique_id=999030164]
+layout_mode = 2
+
+[node name="ActiveToggle" type="CheckButton" parent="SlotHeader" unique_id=1661639360]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="SlotHeader" unique_id=1689837692]
+layout_mode = 2
+
+[node name="NameInput" type="LineEdit" parent="." unique_id=722146121]
+layout_mode = 2
+
+[node name="CharacterSelector" type="VBoxContainer" parent="." unique_id=320218011]
+layout_mode = 2
+
+[node name="SelectorLabel" type="Label" parent="CharacterSelector" unique_id=1035753321]
+layout_mode = 2
+
+[node name="CharacterGrid" type="GridContainer" parent="CharacterSelector" unique_id=651650062]
+layout_mode = 2
+columns = 5
+
+[node name="CharButton1" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=597977464]
+layout_mode = 2
+
+[node name="CharButton2" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=177412779]
+layout_mode = 2
+
+[node name="CharButton3" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=306984340]
+layout_mode = 2
+
+[node name="CharButton4" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=1359589434]
+layout_mode = 2
+
+[node name="CharButton5" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=1597797378]
+layout_mode = 2
+
+[node name="CharButton6" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=861045594]
+layout_mode = 2
+
+[node name="CharButton7" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=1056655716]
+layout_mode = 2
+
+[node name="CharButton8" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=1430736383]
+layout_mode = 2
+
+[node name="CharButton9" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=1953263524]
+layout_mode = 2
+
+[node name="CharButton10" type="Button" parent="CharacterSelector/CharacterGrid" unique_id=368696330]
+layout_mode = 2
+
+[node name="SelectedLabel" type="Label" parent="CharacterSelector" unique_id=340302202]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=796532110]
+layout_mode = 2

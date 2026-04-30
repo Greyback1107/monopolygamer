@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bqattqcoagv0e"]
+
+[node name="GrandPrixCard" type="Control" unique_id=823153349]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CardFront" type="PanelContainer" parent="." unique_id=126459778]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TrackImage" type="TextureRect" parent="CardFront" unique_id=1953043727]
+layout_mode = 2
+
+[node name="RaceNameLabel" type="Label" parent="CardFront" unique_id=2076277959]
+layout_mode = 2
+
+[node name="RollCostLabel" type="Label" parent="CardFront" unique_id=731413129]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardFront" unique_id=922178276]
+layout_mode = 2
+
+[node name="Prize1st" type="HBoxContainer" parent="CardFront/VBoxContainer" unique_id=2032681806]
+layout_mode = 2
+
+[node name="Prize2nd" type="HBoxContainer" parent="CardFront/VBoxContainer" unique_id=645476587]
+layout_mode = 2
+
+[node name="Price3rd" type="HBoxContainer" parent="CardFront/VBoxContainer" unique_id=1304758877]
+layout_mode = 2
+
+[node name="CardBack" type="TextureRect" parent="." unique_id=1760171179]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FlipAnimation" type="AnimationPlayer" parent="." unique_id=2047239169]

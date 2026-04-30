@@ -1,0 +1,241 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "name": "Moo Moo Meadows",
+      "roll_cost": 1,
+      "card_points": 20,
+      "prizes": {
+        "1st": {
+          "points": 20,
+          "actions": [
+            { "type": "take_cheapest_property" }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": [
+            { "type": "collect_coins", "value": 3, "source": "bank" }
+          ]
+        },
+        "3rd": {
+          "points": 0,
+          "actions": [
+            { "type": "fire_green_shell" }
+          ]
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Toad's Turnpike",
+      "roll_cost": 1,
+      "card_points": 10,
+      "prizes": {
+        "1st": {
+          "points": 10,
+          "actions": [
+            { "type": "steal_from_all", "value": 2 }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": [
+            { "type": "roll_and_collect", "die": "numeric" }
+          ]
+        },
+        "3rd": {
+          "points": 0,
+          "actions": [
+            { "type": "collect_coins", "value": 3, "source": "bank" }
+          ]
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Royal Raceway",
+      "roll_cost": 2,
+      "card_points": 30,
+      "prizes": {
+        "1st": {
+          "points": 30,
+          "actions": [
+            { "type": "buy_property_from_player", "price": "board_price" }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": [
+            { "type": "collect_coins", "value": 4, "source": "bank" }
+          ]
+        },
+        "3rd": {
+          "points": 0,
+          "actions": [
+            { "type": "fire_spiny_shell" }
+          ]
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    },
+    {
+      "id": 4,
+      "name": "DK Jungle",
+      "roll_cost": 2,
+      "card_points": 30,
+      "prizes": {
+        "1st": {
+          "points": 30,
+          "actions": [
+            {
+              "type": "send_to_free_parking",
+              "target": "any",
+              "skip_go": true,
+              "skip_coins_on_path": true
+            }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": [
+            { "type": "bonus_roll", "die": "powerup" }
+          ]
+        },
+        "3rd": {
+          "points": 0,
+          "actions": []
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "Serbet Land",
+      "roll_cost": 3,
+      "card_points": 30,
+      "prizes": {
+        "1st": {
+          "points": 40,
+          "actions": [
+            { "type": "swap_properties_between_players", "can_include_self": true }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": [
+            { "type": "place_banana_on_owned_property" }
+          ]
+        },
+        "3rd": {
+          "points": 0,
+          "actions": []
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    },
+    {
+      "id": 6,
+      "name": "Yoshi Valley",
+      "roll_cost": 2,
+      "card_points": 40,
+      "prizes": {
+        "1st": {
+          "points": 40,
+          "actions": [
+            { "type": "auction_any_property", "payment_to": "bank" }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": [
+            { "type": "roll_and_collect", "die": "numeric" }
+          ]
+        },
+        "3rd": {
+          "points": 0,
+          "actions": []
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    },
+    {
+      "id": 7,
+      "name": "Tick-Tock Clock",
+      "roll_cost": 3,
+      "card_points": 50,
+      "prizes": {
+        "1st": {
+          "points": 50,
+          "actions": [
+            { "type": "send_to_jail", "target": "any" }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": [
+            { "type": "bonus_roll", "die": "powerup" }
+          ]
+        },
+        "3rd": {
+          "points": 0,
+          "actions": []
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    },
+    {
+      "id": 8,
+      "name": "Rainbow Road",
+      "roll_cost": 3,
+      "is_final": true,
+      "card_points": 100,
+      "prizes": {
+        "1st": {
+          "points": 100,
+          "actions": [
+            {
+              "type": "steal_grand_prix_card_and_rematch",
+              "all_can_participate": true
+            }
+          ]
+        },
+        "2nd": {
+          "points": 0,
+          "actions": []
+        },
+        "3rd": {
+          "points": 0,
+          "actions": []
+        },
+        "4th": {
+          "points": 0,
+          "actions": []
+        }
+      }
+    }
+  ]
+}

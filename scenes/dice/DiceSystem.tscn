@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cqa8yr4i5sh0o"]
+
+[ext_resource type="Script" uid="uid://cucx2svmue2pp" path="res://scripts/dice/DiceSystem.gd" id="1_rfa5v"]
+[ext_resource type="PackedScene" uid="uid://dxocoplao38wn" path="res://scenes/dice/NumericDie.tscn" id="2_oe7yv"]
+[ext_resource type="PackedScene" uid="uid://dr21a0214di70" path="res://scenes/dice/PowerUpDie.tscn" id="3_k0voi"]
+
+[node name="DiceSystem" type="Node2D" unique_id=1426629508]
+script = ExtResource("1_rfa5v")
+
+[node name="NumericDie" parent="." unique_id=373354575 instance=ExtResource("2_oe7yv")]
+
+[node name="PowerUpDie" parent="." unique_id=806022900 instance=ExtResource("3_k0voi")]
+
+[node name="OrderSelector" type="Control" parent="." unique_id=1734073847]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MoveFirstButton" type="Button" parent="OrderSelector" unique_id=370909497]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="PowerFirstButton" type="Button" parent="OrderSelector" unique_id=1253251949]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

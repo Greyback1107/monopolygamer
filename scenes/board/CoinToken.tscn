@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cp5acyofppml4"]
+
+[node name="CoinToken" type="Node2D" unique_id=1384266220]
+
+[node name="CoinSprite" type="Sprite2D" parent="." unique_id=1203814848]
+
+[node name="AmountLabel" type="Label" parent="." unique_id=52168562]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=617837274]

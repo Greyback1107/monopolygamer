@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://dd8dk4ai6212o"]
+
+[ext_resource type="Script" uid="uid://bdeiynh033c86" path="res://scripts/menus/PlayerSlot.gd" id="1_7bewx"]
+[ext_resource type="Texture2D" uid="uid://ik8pof8rp8h5" path="res://assets/dice/star.png" id="2_lyqut"]
+
+[node name="PlayerSlot" type="PanelContainer" unique_id=1027225368]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7bewx")
+
+[node name="MainHBox" type="HBoxContainer" parent="." unique_id=2048677027]
+layout_mode = 2
+
+[node name="LeftSide" type="VBoxContainer" parent="MainHBox" unique_id=1552911098]
+layout_mode = 2
+
+[node name="SlotHeader" type="HBoxContainer" parent="MainHBox/LeftSide" unique_id=1120007795]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PlayerNumberLabel" type="Label" parent="MainHBox/LeftSide/SlotHeader" unique_id=999030164]
+layout_mode = 2
+
+[node name="ActiveToggle" type="CheckButton" parent="MainHBox/LeftSide/SlotHeader" unique_id=1661639360]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainHBox/LeftSide/SlotHeader" unique_id=1689837692]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CharacterGrid" type="GridContainer" parent="MainHBox/LeftSide" unique_id=651650062]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="CharButton1" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=597977464]
+layout_mode = 2
+
+[node name="CharButton2" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=177412779]
+layout_mode = 2
+
+[node name="CharButton3" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=306984340]
+layout_mode = 2
+
+[node name="CharButton4" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=1359589434]
+layout_mode = 2
+
+[node name="CharButton5" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=1597797378]
+layout_mode = 2
+
+[node name="CharButton6" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=861045594]
+layout_mode = 2
+
+[node name="CharButton7" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=1056655716]
+layout_mode = 2
+
+[node name="CharButton8" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=1430736383]
+layout_mode = 2
+
+[node name="CharButton9" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=1953263524]
+layout_mode = 2
+
+[node name="CharButton10" type="Button" parent="MainHBox/LeftSide/CharacterGrid" unique_id=368696330]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MainHBox/LeftSide" unique_id=1255033749]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameInput" type="LineEdit" parent="MainHBox/LeftSide" unique_id=722146121]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ActivateBtn" type="Button" parent="MainHBox/LeftSide" unique_id=1787882641]
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "▶ Activar Jugador"
+
+[node name="InfoCard" type="PanelContainer" parent="MainHBox" unique_id=967474164]
+layout_mode = 2
+
+[node name="InfoVBox" type="VBoxContainer" parent="MainHBox/InfoCard" unique_id=1091369677]
+layout_mode = 2
+
+[node name="CharNameLabel" type="Label" parent="MainHBox/InfoCard/InfoVBox" unique_id=1654236346]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainHBox/InfoCard/InfoVBox" unique_id=1236175232]
+layout_mode = 2
+
+[node name="SuperStarRow" type="HBoxContainer" parent="MainHBox/InfoCard/InfoVBox" unique_id=726883207]
+layout_mode = 2
+
+[node name="SuperStarIcon" type="TextureRect" parent="MainHBox/InfoCard/InfoVBox/SuperStarRow" unique_id=6697144]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+texture = ExtResource("2_lyqut")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SuperStarLabel" type="Label" parent="MainHBox/InfoCard/InfoVBox/SuperStarRow" unique_id=2018509423]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MainHBox/InfoCard/InfoVBox" unique_id=1606180603]
+layout_mode = 2
+
+[node name="PowerUpRow" type="HBoxContainer" parent="MainHBox/InfoCard/InfoVBox" unique_id=1545080329]
+layout_mode = 2
+
+[node name="PowerUpIcon" type="TextureRect" parent="MainHBox/InfoCard/InfoVBox/PowerUpRow" unique_id=499733587]
+custom_minimum_size = Vector2(75, 90)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PowerUpLabel" type="Label" parent="MainHBox/InfoCard/InfoVBox/PowerUpRow" unique_id=1975754237]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+vertical_alignment = 1
+autowrap_mode = 2
