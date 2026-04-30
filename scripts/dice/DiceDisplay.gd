@@ -164,6 +164,14 @@ func _style_panel() -> void:
     if row and row is Control:
         row.position = Vector2(30, 42)
         row.size = Vector2(280, 120)
+    var num_container = _find_node_by_name(panel, "NumericContainer")
+    var pow_container = _find_node_by_name(panel, "PowerUpContainer")
+    if num_container and num_container is Control:
+        num_container.position = Vector2(24, 16)
+        num_container.size = Vector2(120, 92)
+    if pow_container and pow_container is Control:
+        pow_container.position = Vector2(164, 16)
+        pow_container.size = Vector2(120, 92)
 
     var order = _find_node_by_name(panel, "OrderPanel")
     if order and order is Control:

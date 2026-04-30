@@ -58,11 +58,13 @@ func resolve_powerup(player_id: int, face: Dictionary) -> void:
     if skip_powerup_flags.get(player_id, false):
         skip_powerup_flags[player_id] = false
         GameEvents.powerup_skipped.emit(player_id)
+        GameEvents.powerup_effect_completed.emit(player_id)
         return
 
     var char_data = get_character(player_id)
     if char_data.is_empty():
         _apply_base_effect(player_id, face)
+        GameEvents.powerup_effect_completed.emit(player_id)
         return
 
     var boost = char_data["powerup_boost"]
@@ -71,12 +73,15 @@ func resolve_powerup(player_id: int, face: Dictionary) -> void:
     var face_id = face.get("id", "")
     if face_id == "":
         _apply_base_effect(player_id, {"id": "coins"})
+        GameEvents.powerup_effect_completed.emit(player_id)
         return
 
     if boost["triggers_on"] == face_id:
         _apply_boost_effect(player_id, boost["actions"])
     else:
         _apply_base_effect(player_id, face)
+
+    GameEvents.powerup_effect_completed.emit(player_id)
 
 # ─────────────────────────────────────────────
 # SUPER STAR ABILITY — activada por casilla ⭐
