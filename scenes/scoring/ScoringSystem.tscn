@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://d1cagdmofhrio"]
 
+[ext_resource type="Script" uid="uid://d3iec7sn0v11w" path="res://scripts/scoring/ScoringSystem.gd" id="1_xgbl4"]
+
 [node name="ScoringSystem" type="Node2D" unique_id=1557291193]
+script = ExtResource("1_xgbl4")

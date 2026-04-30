@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://c5aec50o88ts6"]
 
+[ext_resource type="Script" uid="uid://bd1jppwceocwh" path="res://scripts/grand_prix/GrandPrixSystem.gd" id="1_ld46s"]
+
 [node name="GrandPrixSystem" type="Node2D" unique_id=664417756]
+script = ExtResource("1_ld46s")

@@ -36,8 +36,12 @@ func roll() -> void:
     if is_rolling:
         return
     is_rolling = true
-    $DieSprite/AnimationPlayer.play("rolling")
-    await $DieSprite/AnimationPlayer.animation_finished
+    var anim = $DieSprite/AnimationPlayer
+    if anim and anim.has_animation("rolling"):
+        anim.play("rolling")
+        await anim.animation_finished
+    else:
+        await get_tree().create_timer(0.35).timeout
     current_face = faces[randi() % faces.size()]
     _show_result()
     is_rolling = false

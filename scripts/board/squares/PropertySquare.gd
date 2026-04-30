@@ -18,4 +18,4 @@ func _execute_landing_effect(player) -> void:
 
 func _owner_has_full_set() -> bool:
     # consulta al BoardManager si el dueño tiene el par del mismo color
-    return BoardManager.player_owns_full_set(owner_player, data.color_group)
+    return PlayerManager.player_owns_full_set(owner_player.player_id, data.color_group)

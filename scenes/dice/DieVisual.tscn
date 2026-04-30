@@ -9,11 +9,11 @@ script = ExtResource("1_57o2s")
 
 [node name="ShakeAnimation" type="AnimationPlayer" parent="." unique_id=1270019951]
 
-[node name="Resultcontainer" type="Node2D" parent="." unique_id=1939289703]
+[node name="ResultContainer" type="Node2D" parent="." unique_id=1939289703]
 script = ExtResource("1_57o2s")
 die_type = null
 die_size = null
 
-[node name="GlowRect" type="ColorRect" parent="Resultcontainer" unique_id=313330975]
+[node name="GlowRect" type="ColorRect" parent="ResultContainer" unique_id=313330975]
 offset_right = 40.0
 offset_bottom = 40.0

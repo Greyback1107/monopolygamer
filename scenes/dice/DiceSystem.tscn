@@ -12,6 +12,7 @@ script = ExtResource("1_rfa5v")
 [node name="PowerUpDie" parent="." unique_id=806022900 instance=ExtResource("3_k0voi")]
 
 [node name="OrderSelector" type="Control" parent="." unique_id=1734073847]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
