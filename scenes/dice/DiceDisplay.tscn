@@ -7,14 +7,15 @@
 script = ExtResource("1_41g1p")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=15645732]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 320.0
+offset_bottom = 220.0
 
 [node name="TitleLabel" type="Label" parent="Panel" unique_id=418459889]
 layout_mode = 2
 
 [node name="DiceRow" type="HBoxContainer" parent="Panel" unique_id=676409330]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="NumericContainer" type="VBoxContainer" parent="Panel/DiceRow" unique_id=398044023]
 layout_mode = 2
@@ -40,8 +41,10 @@ layout_mode = 2
 
 [node name="MoveFirstButton" type="Button" parent="Panel/OrderPanel" unique_id=1167255074]
 layout_mode = 2
+custom_minimum_size = Vector2(280, 32)
 
 [node name="PowerFirstButton" type="Button" parent="Panel/OrderPanel" unique_id=677493382]
 layout_mode = 2
+custom_minimum_size = Vector2(280, 32)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=534603960]
