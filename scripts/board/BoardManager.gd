@@ -335,7 +335,7 @@ func _resolve_visual_square_effect(player_id: int, square_index: int) -> void:
     if sq_type == "BOOST_PAD":
         GameEvents.bonus_roll_requested.emit(player_id, "numeric")
         return
-        
+
     if sq_type == "SUPER_STAR":
         GameEvents.activate_superstar.emit(player_id)
         GameEvents.square_effect_completed.emit(player_id)

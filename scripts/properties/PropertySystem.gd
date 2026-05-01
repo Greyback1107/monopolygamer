@@ -167,7 +167,7 @@ func _on_auction_any(player_id: int, payment_to: String) -> void:
 
 func _on_auction_started(square_id: int, payment_to: String) -> void:
     var bm = _board_manager()
-    var square = bm.get_square(square_id) if bm else null
+            var square = bm.get_square(square_id) if bm else null
     if square:
         _start_auction(square, payment_to)
 
@@ -214,7 +214,7 @@ func _on_execute_buy_from_player(buyer_id: int, square_id: int) -> void:
 
 func _execute_buy_from_player(buyer_id: int, square_id: int) -> void:
     var bm = _board_manager()
-    var square = bm.get_square(square_id) if bm else null
+            var square = bm.get_square(square_id) if bm else null
     if not square or not square.owner_player:
         return
 
