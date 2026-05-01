@@ -21,7 +21,9 @@ func _on_show(player_id: int, square) -> void:
     _current_player_id = player_id
 
     var d = square.data
-    $ColorBar.color = BoardManager.get_group_color(d.color_group)
+    var bm = get_node_or_null("/root/GameScene/BoardManager")
+    if bm:
+        $ColorBar.color = bm.get_group_color(d.color_group)
     $PropertyNameLabel.text = d.square_name
     $CostLabel.text = "Precio: %d monedas" % d.buy_cost
     $RentInfoLabel.text = "Renta: %d  |  Par: %d" % [d.rent_base, d.rent_double]
@@ -34,7 +36,11 @@ func _on_show(player_id: int, square) -> void:
     visible = true
 
 func _on_buy() -> void:
-    PropertySystem.player_buys_property(_current_player_id, _current_square)
+    var ps = get_node_or_null("/root/GameScene/PropertySystem")
+    if ps:
+        ps.player_buys_property(_current_player_id, _current_square)
 
 func _on_auction() -> void:
-    PropertySystem.player_declines_property(_current_square)
+    var ps = get_node_or_null("/root/GameScene/PropertySystem")
+    if ps:
+        ps.player_declines_property(_current_square)
