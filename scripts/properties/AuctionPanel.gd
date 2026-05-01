@@ -25,8 +25,9 @@ func _on_show(square, payment_to: String) -> void:
     _build_bidder_rows()
 
     var d = square.data
-    $PropertyInfoContainer/ColorBar.color = \
-        BoardManager.get_group_color(d.color_group)
+    var bm = get_node_or_null("/root/GameScene/BoardManager")
+    if bm:
+        $PropertyInfoContainer/ColorBar.color = bm.get_group_color(d.color_group)
     $PropertyInfoContainer/PropertyNameLabel.text = d.square_name
     $PropertyInfoContainer/RentInfoLabel.text = \
         "Renta: %d  |  Par: %d" % [d.rent_base, d.rent_double]
@@ -109,12 +110,14 @@ func _conclude_auction() -> void:
         _current_bid
     ]
     await get_tree().create_timer(1.5).timeout
-    PropertySystem.execute_auction_result(
-        _current_leader,
-        _square,
-        _current_bid,
-        _payment_to
-    )
+    var ps = get_node_or_null("/root/GameScene/PropertySystem")
+    if ps:
+        ps.execute_auction_result(
+            _current_leader,
+            _square,
+            _current_bid,
+            _payment_to
+        )
 
 func _refresh_bid_buttons() -> void:
     for pid in _active_bidders:
