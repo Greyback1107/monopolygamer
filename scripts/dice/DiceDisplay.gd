@@ -7,7 +7,6 @@ var powerup_visual: Node
 var order_panel: Node
 var title_label: Label
 
-# ← estas son las que faltan:
 var _numeric_result: int = 0
 var _powerup_face: Dictionary = {}
 var _rolls_done: int = 0

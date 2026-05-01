@@ -6,7 +6,9 @@ func _ready() -> void:
     GameEvents.hide_rent_panel.connect(func(): visible = false)
     GameEvents.rent_timer_updated.connect(_on_timer_update)
     $ClaimButton.pressed.connect(func():
-        PropertySystem.owner_claims_rent()
+        var ps = get_node_or_null("/root/GameScene/PropertySystem")
+        if ps:
+            ps.owner_claims_rent()
     )
     visible = false
 

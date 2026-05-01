@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bx4qsa6nqpkc3"]
 
-[ext_resource type="Script" uid="uid://dghi7p0i5qgsv" path="res://scripts/properties/AuctionPanel.gd" id="1_6d20r"]
+[ext_resource type="Script" uid="uid://cq4j7558b35gw" path="res://scripts/properties/AuctionPanel.gd" id="1_6f9df"]
 
 [node name="AuctionPanel" type="PanelContainer" unique_id=1553476702]
+script = ExtResource("1_6f9df")
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_6d20r")

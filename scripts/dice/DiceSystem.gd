@@ -2,7 +2,6 @@ class_name DiceSystem
 extends Node2D
 
 signal turn_dice_completed(numeric_result: int, powerup_face: Dictionary, order: int)
-
 enum ResolveOrder { MOVE_FIRST, POWER_FIRST }
 
 var numeric_result: int = 0
@@ -26,7 +25,6 @@ func _ready() -> void:
         numeric_die.roll_completed.connect(_on_numeric_roll_done)
     if powerup_die:
         powerup_die.roll_completed.connect(_on_powerup_roll_done)
-    
     
     $OrderSelector.visible = false
     GameEvents.dice_order_chosen.connect(_on_order_from_display)
@@ -63,12 +61,6 @@ func _check_both_rolled() -> void:
     # lanzar la animación visual primero
     dice_display.start_roll_animation(numeric_result, powerup_face)
     # El DiceDisplay emitirá dice_order_chosen cuando el jugador elija
-
-func _choose_order(order: ResolveOrder) -> void:
-    resolve_order = order
-    $OrderSelector.visible = false
-    turn_dice_completed.emit(numeric_result, powerup_face, int(order))
-
 
 func _on_order_from_display(order: int) -> void:
     resolve_order = order

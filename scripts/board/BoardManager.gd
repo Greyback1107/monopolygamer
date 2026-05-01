@@ -308,6 +308,7 @@ func has_banana(square_index: int) -> bool:
 func get_coins_on_square(square_index: int) -> int:
     return coins_on_board.get(square_index, 0)
 
+
 func _load_square_defs() -> void:
     square_defs.clear()
     var f = FileAccess.open("res://resources/board_data/board_layout.json", FileAccess.READ)
