@@ -15,6 +15,8 @@ const FREE_PARKING_INDEX = 9     # ajusta según tu tablero
 # Todas las casillas instanciadas en orden
 var squares: Array = []
 
+var color_groups: Dictionary = {}
+
 # Monedas físicas en el tablero: square_index → cantidad
 var coins_on_board: Dictionary = {}
 

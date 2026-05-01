@@ -2,7 +2,6 @@ class_name DiceSystem
 extends Node2D
 
 signal turn_dice_completed(numeric_result: int, powerup_face: Dictionary, order: int)
-signal waiting_for_order_choice()
 
 enum ResolveOrder { MOVE_FIRST, POWER_FIRST }
 
@@ -28,12 +27,7 @@ func _ready() -> void:
     if powerup_die:
         powerup_die.roll_completed.connect(_on_powerup_roll_done)
     
-    $OrderSelector/MoveFirstButton.pressed.connect(
-        func(): _choose_order(ResolveOrder.MOVE_FIRST)
-    )
-    $OrderSelector/PowerFirstButton.pressed.connect(
-        func(): _choose_order(ResolveOrder.POWER_FIRST)
-    )
+    
     $OrderSelector.visible = false
     GameEvents.dice_order_chosen.connect(_on_order_from_display)
 
