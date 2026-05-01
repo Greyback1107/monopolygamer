@@ -25,7 +25,6 @@ var bananas_on_board: Dictionary = {}
 const MAX_BANANAS = 4
 
 # Grupos de color: color_group → [square_id, square_id]
-var color_groups: Dictionary = {}
 var square_defs: Dictionary = {}  # square_id -> data json
 
 # Colores visuales por grupo
