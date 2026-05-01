@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://qnpv2y6w8s65" path="res://scripts/GameScene.gd" id="1_qitmq"]
 [ext_resource type="PackedScene" uid="uid://cfpcj0gf8dsic" path="res://scenes/board/Board.tscn" id="1_w22tq"]
-[ext_resource type="PackedScene" uid="uid://c6blwp803s2en" path="res://scenes/board/BoardManager.tscn" id="15_bmngr"]
 [ext_resource type="PackedScene" uid="uid://cqa8yr4i5sh0o" path="res://scenes/dice/DiceSystem.tscn" id="2_e8rlm"]
 [ext_resource type="PackedScene" uid="uid://c6blwp803s2en" path="res://scenes/board/BoardManager.tscn" id="3_kxqg4"]
 [ext_resource type="PackedScene" uid="uid://cmio6fqjfeqdb" path="res://scenes/characters/CharacterSystem.tscn" id="3_qitmq"]
@@ -20,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c52hjf3vtekuo" path="res://scenes/properties/PropertySystem.tscn" id="16_psys"]
 [ext_resource type="PackedScene" uid="uid://cgqhw258tcacg" path="res://scenes/properties/BuyPanel.tscn" id="17_buyp"]
 [ext_resource type="PackedScene" uid="uid://ed6bs1r27mgm" path="res://scenes/properties/RentPanel.tscn" id="18_rent"]
-[ext_resource type="PackedScene" uid="uid://bx4qsa6nqpkc3" path="res://scenes/properties/AuctionPanel.tscn" id="19_auc"]
+[ext_resource type="PackedScene" uid="uid://bcml312rbmlts" path="res://scenes/properties/AuctionPanel.tscn" id="20_2gh7q"]
 
 [node name="GameScene" type="Node2D" unique_id=674056257]
 script = ExtResource("1_qitmq")
@@ -32,7 +31,7 @@ zoom = Vector2(0.85, 0.85)
 [node name="Board" parent="." unique_id=870065626 instance=ExtResource("1_w22tq")]
 position = Vector2(640, 360)
 
-[node name="BoardManager" parent="." unique_id=400001111 instance=ExtResource("15_bmngr")]
+[node name="BoardManager" parent="." unique_id=400001111 instance=ExtResource("3_kxqg4")]
 
 [node name="DiceSystem" parent="." unique_id=1426629508 instance=ExtResource("2_e8rlm")]
 
@@ -65,5 +64,7 @@ position = Vector2(640, 360)
 [node name="DiceDisplay" parent="UI" unique_id=783733447 instance=ExtResource("14_e8rlm")]
 
 [node name="BuyPanel" parent="UI" unique_id=102159304 instance=ExtResource("17_buyp")]
+
 [node name="RentPanel" parent="UI" unique_id=1787874883 instance=ExtResource("18_rent")]
-[node name="AuctionPanel" parent="UI" unique_id=1553476702 instance=ExtResource("19_auc")]
+
+[node name="AuctionPanel" parent="." unique_id=329313776 instance=ExtResource("20_2gh7q")]

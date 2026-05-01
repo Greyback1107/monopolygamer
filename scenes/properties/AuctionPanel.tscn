@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bx4qsa6nqpkc3"]
+[gd_scene format=3 uid="uid://bcml312rbmlts"]
 
 [ext_resource type="Script" uid="uid://cq4j7558b35gw" path="res://scripts/properties/AuctionPanel.gd" id="1_6f9df"]
 
@@ -7,86 +7,10 @@ script = ExtResource("1_6f9df")
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PropertyContainer" type="VBoxContainer" parent="." unique_id=1430913453]
-layout_mode = 2
-
-[node name="ColorBar" type="ColorRect" parent="PropertyContainer" unique_id=1062214010]
-layout_mode = 2
-
-[node name="PropertyNameLabel" type="Label" parent="PropertyContainer" unique_id=161216843]
-layout_mode = 2
-
-[node name="RentInfoLabel" type="Label" parent="PropertyContainer" unique_id=1369388311]
-layout_mode = 2
-
-[node name="CurrentBidLabel" type="Label" parent="." unique_id=1736889310]
-layout_mode = 2
-
-[node name="CurrentLeaderLabel" type="Label" parent="." unique_id=1234130447]
-layout_mode = 2
-
-[node name="BiddersContainer" type="VBoxContainer" parent="." unique_id=498467701]
-layout_mode = 2
-
-[node name="BidderRow1" type="HBoxContainer" parent="BiddersContainer" unique_id=214668435]
-layout_mode = 2
-
-[node name="PlayerNameLabel" type="Label" parent="BiddersContainer/BidderRow1" unique_id=1083122701]
-layout_mode = 2
-
-[node name="ConisLabel" type="Label" parent="BiddersContainer/BidderRow1" unique_id=289267380]
-layout_mode = 2
-
-[node name="BidButton" type="Button" parent="BiddersContainer/BidderRow1" unique_id=843118287]
-layout_mode = 2
-
-[node name="PassButton" type="Button" parent="BiddersContainer/BidderRow1" unique_id=967873164]
-layout_mode = 2
-
-[node name="BidderRow2" type="HBoxContainer" parent="BiddersContainer" unique_id=418636244]
-layout_mode = 2
-
-[node name="PlayerNameLabel" type="Label" parent="BiddersContainer/BidderRow2" unique_id=1820164263]
-layout_mode = 2
-
-[node name="ConisLabel" type="Label" parent="BiddersContainer/BidderRow2" unique_id=373566551]
-layout_mode = 2
-
-[node name="BidButton" type="Button" parent="BiddersContainer/BidderRow2" unique_id=811589041]
-layout_mode = 2
-
-[node name="PassButton" type="Button" parent="BiddersContainer/BidderRow2" unique_id=2118169525]
-layout_mode = 2
-
-[node name="BidderRow3" type="HBoxContainer" parent="BiddersContainer" unique_id=1536311672]
-layout_mode = 2
-
-[node name="PlayerNameLabel" type="Label" parent="BiddersContainer/BidderRow3" unique_id=1440983148]
-layout_mode = 2
-
-[node name="ConisLabel" type="Label" parent="BiddersContainer/BidderRow3" unique_id=2109087860]
-layout_mode = 2
-
-[node name="BidButton" type="Button" parent="BiddersContainer/BidderRow3" unique_id=1558753478]
-layout_mode = 2
-
-[node name="PassButton" type="Button" parent="BiddersContainer/BidderRow3" unique_id=565953216]
-layout_mode = 2
-
-[node name="BidderRow4" type="HBoxContainer" parent="BiddersContainer" unique_id=1948438764]
-layout_mode = 2
-
-[node name="PlayerNameLabel" type="Label" parent="BiddersContainer/BidderRow4" unique_id=1409051940]
-layout_mode = 2
-
-[node name="ConisLabel" type="Label" parent="BiddersContainer/BidderRow4" unique_id=129033448]
-layout_mode = 2
-
-[node name="BidButton" type="Button" parent="BiddersContainer/BidderRow4" unique_id=682572294]
-layout_mode = 2
-
-[node name="PassButton" type="Button" parent="BiddersContainer/BidderRow4" unique_id=1971964276]
-layout_mode = 2
-
-[node name="AuctionStatusLabel" type="Label" parent="." unique_id=397660089]
-layout_mode = 2
+[node name="AuctionPanel" type="PanelContainer" unique_id=329313776]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6f9df")

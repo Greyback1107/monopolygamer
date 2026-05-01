@@ -7,9 +7,14 @@ layer = 10
 script = ExtResource("1_ycyna")
 
 [node name="HUDPanel" type="PanelContainer" parent="." unique_id=1290761761]
-custom_minimum_size = Vector2(300, 150)
-offset_right = 300.0
-offset_bottom = 150.0
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 140.0
+offset_right = 109.0
+offset_bottom = 240.0
+grow_vertical = 2
 
 [node name="TopRow" type="HBoxContainer" parent="HUDPanel" unique_id=414137064]
 layout_mode = 2
@@ -60,9 +65,9 @@ layout_mode = 2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -54.0
+offset_top = -720.0
 offset_right = 100.0
-offset_bottom = 46.0
+offset_bottom = -620.0
 grow_vertical = 0
 
 [node name="PlayerDot1" type="VBoxContainer" parent="PlayerIndicators" unique_id=893145319]
@@ -78,13 +83,12 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ScorePanel" type="PanelContainer" parent="." unique_id=367778128]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="ScoreList" type="VBoxContainer" parent="ScorePanel" unique_id=861561290]
 layout_mode = 2
