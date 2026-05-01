@@ -2,6 +2,8 @@ class_name DiceSystem
 extends Node2D
 
 signal turn_dice_completed(numeric_result: int, powerup_face: Dictionary, order: int)
+signal waiting_for_order_choice()
+
 enum ResolveOrder { MOVE_FIRST, POWER_FIRST }
 
 var numeric_result: int = 0
@@ -59,6 +61,7 @@ func _check_both_rolled() -> void:
         return
     # En vez de mostrar el OrderSelector directo,
     # lanzar la animación visual primero
+    waiting_for_order_choice.emit()
     dice_display.start_roll_animation(numeric_result, powerup_face)
     # El DiceDisplay emitirá dice_order_chosen cuando el jugador elija
 
