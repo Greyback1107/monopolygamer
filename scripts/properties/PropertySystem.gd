@@ -17,6 +17,15 @@ var _pending_rent: Dictionary = {}
 var _rent_timer: float = 0.0
 var _rent_active: bool = false
 
+func _board_manager():
+    return get_node_or_null("/root/GameScene/BoardManager")
+
+func _interaction_ui():
+    return get_node_or_null("/root/GameScene/UI/InteractionUi")
+
+func _scoring_system():
+    return get_node_or_null("/root/GameScene/ScoringSystem")
+
 func _ready() -> void:
     GameEvents.property_available.connect(_on_property_available)
     GameEvents.rent_due.connect(_on_rent_due)
@@ -70,7 +79,9 @@ func _assign_property(player_id: int, square) -> void:
     PlayerManager.get_player(player_id).add_property(square.square_id)
     # Actualizar puntos de propiedad en ScoringSystem
     var pts = PlayerManager.get_property_points(player_id)
-    ScoringSystem.update_property_points(player_id, pts)
+    var scoring = _scoring_system()
+    if scoring:
+        scoring.update_property_points(player_id, pts)
 
 # ─────────────────────────────────────────
 # RENTA
@@ -139,17 +150,23 @@ func _start_auction(square, payment_to: String) -> void:
 
 func _on_auction_any(player_id: int, payment_to: String) -> void:
     # Premio Grand Prix — el ganador elige cualquier propiedad para subastar
-    InteractionUI.request_property_pick(
+    var ui = _interaction_ui()
+    if not ui:
+        return
+    ui.request_property_pick(
         player_id,
         "Elegir propiedad para subastar",
         {"any": true},
         func(square_id):
-            var square = BoardManager.get_square(square_id)
-            _start_auction(square, payment_to)
+            var bm = _board_manager()
+            var square = bm.get_square(square_id) if bm else null
+            if square:
+                _start_auction(square, payment_to)
     )
 
 func _on_auction_started(square_id: int, payment_to: String) -> void:
-    var square = BoardManager.get_square(square_id)
+    var bm = _board_manager()
+    var square = bm.get_square(square_id) if bm else null
     if square:
         _start_auction(square, payment_to)
 
@@ -181,7 +198,10 @@ func execute_auction_result(
 # ─────────────────────────────────────────
 func _on_buy_from_player(buyer_id: int) -> void:
     # Royal Raceway 1°: comprar propiedad de otro jugador al precio del tablero
-    InteractionUI.request_property_pick(
+    var ui = _interaction_ui()
+    if not ui:
+        return
+    ui.request_property_pick(
         buyer_id,
         "Elegir propiedad para comprar",
         {"owned_by_others": true},
@@ -192,7 +212,8 @@ func _on_execute_buy_from_player(buyer_id: int, square_id: int) -> void:
     _execute_buy_from_player(buyer_id, square_id)
 
 func _execute_buy_from_player(buyer_id: int, square_id: int) -> void:
-    var square = BoardManager.get_square(square_id)
+    var bm = _board_manager()
+    var square = bm.get_square(square_id) if bm else null
     if not square or not square.owner_player:
         return
 
@@ -215,7 +236,9 @@ func _execute_buy_from_player(buyer_id: int, square_id: int) -> void:
 
 func _on_swap_properties(source_id: int, can_include_self: bool) -> void:
     # Serbet Land 1°: dos jugadores intercambian una propiedad cada uno
-    InteractionUI.request_swap_pick(source_id, can_include_self)
+    var ui = _interaction_ui()
+    if ui:
+        ui.request_swap_pick(source_id, can_include_self)
 
 func _on_execute_swap(
         _source_id: int,
@@ -223,13 +246,19 @@ func _on_execute_swap(
         player_b: int) -> void:
 
     # Cada jugador elige qué propiedad suya dar
-    InteractionUI.request_property_pick(
+    var ui = _interaction_ui()
+    if not ui:
+        return
+    ui.request_property_pick(
         player_a,
         "%s: elegir propiedad a intercambiar" % \
             PlayerManager.get_player_name(player_a),
         {"owned_by_self_id": player_a},
         func(sq_a):
-            InteractionUI.request_property_pick(
+            var ui2 = _interaction_ui()
+            if not ui2:
+                return
+            ui2.request_property_pick(
                 player_b,
                 "%s: elegir propiedad a intercambiar" % \
                     PlayerManager.get_player_name(player_b),
@@ -243,8 +272,9 @@ func _execute_property_swap(
         player_a: int, square_id_a: int,
         player_b: int, square_id_b: int) -> void:
 
-    var sq_a = BoardManager.get_square(square_id_a)
-    var sq_b = BoardManager.get_square(square_id_b)
+    var bm = _board_manager()
+    var sq_a = bm.get_square(square_id_a) if bm else null
+    var sq_b = bm.get_square(square_id_b) if bm else null
     var pa = PlayerManager.get_player(player_a)
     var pb = PlayerManager.get_player(player_b)
 
@@ -257,12 +287,15 @@ func _execute_property_swap(
     sq_b.owner_player = pa
 
     # Actualizar puntos de ambos
-    ScoringSystem.update_property_points(
-        player_a, PlayerManager.get_property_points(player_a)
-    )
-    ScoringSystem.update_property_points(
-        player_b, PlayerManager.get_property_points(player_b)
-    )
+    var scoring = _scoring_system()
+    if scoring:
+        scoring.update_property_points(
+            player_a, PlayerManager.get_property_points(player_a)
+        )
+    if scoring:
+        scoring.update_property_points(
+            player_b, PlayerManager.get_property_points(player_b)
+        )
 
     GameEvents.property_swap_completed.emit(
         player_a, square_id_a,
