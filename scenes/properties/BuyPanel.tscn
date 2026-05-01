@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://ds150p5evx7hj" path="res://scripts/properties/BuyPanel.gd" id="1_xw0jt"]
 
 [node name="BuyPanel" type="PanelContainer" unique_id=102159304]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 360.0
+offset_bottom = 240.0
 script = ExtResource("1_xw0jt")
+position = Vector2(920, 420)
 
 [node name="ColorBar" type="ColorRect" parent="." unique_id=427797958]
 layout_mode = 2

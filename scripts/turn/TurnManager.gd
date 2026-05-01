@@ -66,6 +66,7 @@ func _connect_signals() -> void:
 
     # Power-up
     GameEvents.powerup_effect_completed.connect(_on_powerup_completed)
+    GameEvents.bonus_roll_requested.connect(_on_bonus_roll_requested)
 
     # HUD — el jugador presiona el botón de tirar
     GameEvents.roll_button_pressed.connect(_on_roll_button_pressed)
@@ -272,3 +273,10 @@ func get_current_state() -> TurnState:
 
 func get_current_player() -> int:
     return _current_pid()
+
+
+func _on_bonus_roll_requested(player_id: int, mode: String) -> void:
+    if player_id != _current_pid():
+        return
+    if mode == "numeric":
+        _set_state(TurnState.WAITING_FOR_TURN_START)

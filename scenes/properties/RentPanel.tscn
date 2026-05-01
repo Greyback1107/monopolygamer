@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://c7pkmd6fq5rme" path="res://scripts/properties/RentPanel.gd" id="1_fhwk8"]
 
 [node name="RentPanel" type="PanelContainer" unique_id=1787874883]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 360.0
+offset_bottom = 240.0
 script = ExtResource("1_fhwk8")
+position = Vector2(920, 420)
 
 [node name="TitleLabel" type="Label" parent="." unique_id=2016480931]
 layout_mode = 2

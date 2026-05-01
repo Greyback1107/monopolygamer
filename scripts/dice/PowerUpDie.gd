@@ -9,6 +9,14 @@ var is_rolling: bool = false
 
 func _ready() -> void:
     _load_faces()
+    if has_node("RollButton"):
+        $RollButton.visible = false
+    if has_node("FaceLabel"):
+        $FaceLabel.visible = false
+    if has_node("FaceIcon"):
+        $FaceIcon.visible = false
+    if has_node("DieSprite"):
+        $DieSprite.visible = false
 
 func _load_faces() -> void:
     var file = FileAccess.open(
@@ -36,8 +44,12 @@ func roll() -> void:
     if is_rolling:
         return
     is_rolling = true
-    $DieSprite/AnimationPlayer.play("rolling")
-    await $DieSprite/AnimationPlayer.animation_finished
+    var anim = $DieSprite/AnimationPlayer
+    if anim and anim.has_animation("rolling"):
+        anim.play("rolling")
+        await anim.animation_finished
+    else:
+        await get_tree().create_timer(0.35).timeout
     current_face = faces[randi() % faces.size()]
     _show_result()
     is_rolling = false
