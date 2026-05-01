@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ed6bs1r27mgm"]
+
+[ext_resource type="Script" uid="uid://c7pkmd6fq5rme" path="res://scripts/properties/RentPanel.gd" id="1_fhwk8"]
+
+[node name="RentPanel" type="PanelContainer" unique_id=1787874883]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fhwk8")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=2016480931]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="." unique_id=333299514]
+layout_mode = 2
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1004511078]
+layout_mode = 2
+
+[node name="TimerBar" type="ProgressBar" parent="." unique_id=1476298413]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1793512932]
+layout_mode = 2
+
+[node name="ClaimButton" type="Button" parent="." unique_id=1369395541]
+layout_mode = 2
