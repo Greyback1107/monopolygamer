@@ -6,6 +6,7 @@
 script = ExtResource("1_6f9df")
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_6d20r")
 
 [node name="PropertyContainer" type="VBoxContainer" parent="." unique_id=1430913453]
 layout_mode = 2
