@@ -1,9 +1,7 @@
 class_name DiceSystem
 extends Node2D
 
-signal turn_dice_completed(numeric_result: int, powerup_face: Dictionary)
-signal waiting_for_order_choice()
-
+signal turn_dice_completed(numeric_result: int, powerup_face: Dictionary, order: int)
 enum ResolveOrder { MOVE_FIRST, POWER_FIRST }
 
 var numeric_result: int = 0
@@ -28,13 +26,8 @@ func _ready() -> void:
     if powerup_die:
         powerup_die.roll_completed.connect(_on_powerup_roll_done)
     
-    $OrderSelector/MoveFirstButton.pressed.connect(
-        func(): _choose_order(ResolveOrder.MOVE_FIRST)
-    )
-    $OrderSelector/PowerFirstButton.pressed.connect(
-        func(): _choose_order(ResolveOrder.POWER_FIRST)
-    )
     $OrderSelector.visible = false
+    GameEvents.dice_order_chosen.connect(_on_order_from_display)
 
 # --- ENTRADA PRINCIPAL: el TurnManager llama esto ---
 func roll_for_player(player) -> void:
@@ -69,7 +62,7 @@ func _check_both_rolled() -> void:
     dice_display.start_roll_animation(numeric_result, powerup_face)
     # El DiceDisplay emitirá dice_order_chosen cuando el jugador elija
 
-func _choose_order(order: ResolveOrder) -> void:
+func _on_order_from_display(order: int) -> void:
     resolve_order = order
-    $OrderSelector.visible = false
-    turn_dice_completed.emit(numeric_result, powerup_face)
+    turn_dice_completed.emit(numeric_result, powerup_face, order)
+    GameEvents.dice_roll_completed.emit(current_player, numeric_result, powerup_face, order)
