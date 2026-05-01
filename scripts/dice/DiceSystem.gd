@@ -3,7 +3,6 @@ extends Node2D
 
 signal turn_dice_completed(numeric_result: int, powerup_face: Dictionary, order: int)
 signal waiting_for_order_choice()
-
 enum ResolveOrder { MOVE_FIRST, POWER_FIRST }
 
 var numeric_result: int = 0
