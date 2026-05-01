@@ -5,6 +5,8 @@ extends Node
 var all_characters: Dictionary = {}     # id → datos completos
 var active_characters: Dictionary = {}  # player_id → character_id
 var skip_powerup_flags: Dictionary = {} # player_id → bool
+var token_scene: PackedScene = preload("res://scenes/characters/CharacterToken.tscn")
+var spawned_tokens: Dictionary = {}
 
 func _ready() -> void:
     _load_characters()
@@ -42,6 +44,7 @@ func assign_character(player_id: int, character_id: String) -> void:
         return
     active_characters[player_id] = character_id
     skip_powerup_flags[player_id] = false
+    _spawn_player_token(player_id, character_id)
 
 func get_character(player_id: int) -> Dictionary:
     var char_id = active_characters.get(player_id, "")
@@ -55,20 +58,30 @@ func resolve_powerup(player_id: int, face: Dictionary) -> void:
     if skip_powerup_flags.get(player_id, false):
         skip_powerup_flags[player_id] = false
         GameEvents.powerup_skipped.emit(player_id)
+        GameEvents.powerup_effect_completed.emit(player_id)
         return
 
     var char_data = get_character(player_id)
     if char_data.is_empty():
         _apply_base_effect(player_id, face)
+        GameEvents.powerup_effect_completed.emit(player_id)
         return
 
     var boost = char_data["powerup_boost"]
 
     # ¿Este personaje modifica esta cara específica?
-    if boost["triggers_on"] == face["id"]:
+    var face_id = face.get("id", "")
+    if face_id == "":
+        _apply_base_effect(player_id, {"id": "coins"})
+        GameEvents.powerup_effect_completed.emit(player_id)
+        return
+
+    if boost["triggers_on"] == face_id:
         _apply_boost_effect(player_id, boost["actions"])
     else:
         _apply_base_effect(player_id, face)
+
+    GameEvents.powerup_effect_completed.emit(player_id)
 
 # ─────────────────────────────────────────────
 # SUPER STAR ABILITY — activada por casilla ⭐
@@ -89,7 +102,8 @@ func _apply_boost_effect(player_id: int, actions: Array) -> void:
         _execute_action(player_id, action)
 
 func _apply_base_effect(player_id: int, face: Dictionary) -> void:
-    match face["id"]:
+    var face_id = face.get("id", "coins")
+    match face_id:
         "coins":
             GameEvents.effect_collect_coins.emit(player_id, 3)
         "green_shell":
@@ -173,3 +187,26 @@ func _apply_metal_mario_skip(source_player_id: int) -> void:
 func _on_dice_resolved(player_id, _numeric, powerup_face, resolve_order) -> void:
     if resolve_order == 1:  # 1 = POWER_FIRST
         resolve_powerup(player_id, powerup_face)
+
+func _spawn_player_token(player_id: int, character_id: String) -> void:
+    if spawned_tokens.has(player_id):
+        return
+    var board = get_tree().current_scene.get_node_or_null("Board")
+    if board == null:
+        return
+    var token_layer = board.get_node_or_null("TokenLayer")
+    if token_layer == null:
+        return
+    token_layer.z_as_relative = false
+    token_layer.z_index = 400
+
+    var token = token_scene.instantiate()
+    var player = PlayerManager.get_player(player_id)
+    var pcolor = player.color if player else Color.WHITE
+    token_layer.add_child(token)
+    token.setup(player_id, character_id, pcolor)
+    if board.has_method("get_square_position"):
+        var base_pos = board.get_square_position(0)
+        var offset = Vector2((player_id % 2) * 18 - 9, int(player_id / 2) * 18 - 9)
+        token.global_position = base_pos + offset
+    spawned_tokens[player_id] = token

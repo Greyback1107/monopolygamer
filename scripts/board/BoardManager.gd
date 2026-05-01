@@ -4,7 +4,7 @@ extends Node
 # ─────────────────────────────────────────
 # CONSTANTES
 # ─────────────────────────────────────────
-const TOTAL_SQUARES = 40
+const TOTAL_SQUARES = 32
 const GO_SQUARE_INDEX = 0
 const JAIL_SQUARE_INDEX = 18
 const FREE_PARKING_INDEX = 9     # ajusta según tu tablero
@@ -15,6 +15,8 @@ const FREE_PARKING_INDEX = 9     # ajusta según tu tablero
 # Todas las casillas instanciadas en orden
 var squares: Array = []
 
+var color_groups: Dictionary = {}
+
 # Monedas físicas en el tablero: square_index → cantidad
 var coins_on_board: Dictionary = {}
 
@@ -23,7 +25,7 @@ var bananas_on_board: Dictionary = {}
 const MAX_BANANAS = 4
 
 # Grupos de color: color_group → [square_id, square_id]
-var color_groups: Dictionary = {}
+var square_defs: Dictionary = {}  # square_id -> data json
 
 # Colores visuales por grupo
 const GROUP_COLORS = {
@@ -38,7 +40,9 @@ const GROUP_COLORS = {
 }
 
 func _ready() -> void:
+    _load_square_defs()
     _build_square_registry()
+    _init_starting_coins()
     _connect_signals()
 
 # ─────────────────────────────────────────
@@ -48,19 +52,26 @@ func _build_square_registry() -> void:
     squares.clear()
     color_groups.clear()
 
-    var container = get_node("../Board/SquaresContainer")
-    for i in TOTAL_SQUARES:
-        var square = container.get_child(i)
-        squares.append(square)
+    var board = get_node_or_null("../Board")
+    if board == null:
+        push_error("BoardManager: no se encontró ../Board")
+        return
 
-        # Registrar grupos de color
-        if square is PropertySquare and square.data.color_group != "":
-            var group = square.data.color_group
-            if not color_groups.has(group):
-                color_groups[group] = []
-            color_groups[group].append(square.square_id)
+    var container = get_node_or_null("../Board/SquaresContainer")
+    if container and container.get_child_count() > 0:
+        for i in container.get_child_count():
+            squares.append(container.get_child(i))
+    else:
+        for child in board.get_children():
+            if child.name.begins_with("Square_"):
+                squares.append(child)
+
+    if squares.is_empty():
+        push_error("BoardManager: no se encontraron casillas registrables")
+        return
 
     print("BoardManager: %d casillas registradas" % squares.size())
+
 
 # ─────────────────────────────────────────
 # CONEXIÓN DE SEÑALES
@@ -136,6 +147,9 @@ func _move_step_by_step(
 # ATERRIZAJE EN CASILLA
 # ─────────────────────────────────────────
 func _land_on_square(player_id: int, square_index: int) -> void:
+    if square_index < 0 or square_index >= squares.size():
+        GameEvents.square_effect_completed.emit(player_id)
+        return
     var square = squares[square_index]
 
     # Recoger monedas que estaban en la casilla
@@ -146,7 +160,11 @@ func _land_on_square(player_id: int, square_index: int) -> void:
         GameEvents.coins_collected_on_land.emit(player_id, square_index, picked)
 
     # Ejecutar el efecto de la casilla
-    square.on_player_land(PlayerManager.get_player(player_id))
+    if square.has_method("on_player_land"):
+        square.on_player_land(PlayerManager.get_player(player_id))
+        return
+
+    _resolve_visual_square_effect(player_id, square_index)
 
 # ─────────────────────────────────────────
 # PASO POR GO
@@ -175,12 +193,14 @@ func place_banana(square_index: int) -> void:
     if bananas_on_board.has(square_index):
         return  # ya hay una banana aquí
     bananas_on_board[square_index] = true
-    squares[square_index].place_banana()
+    if square_index >= 0 and square_index < squares.size() and squares[square_index].has_method("place_banana"):
+        squares[square_index].place_banana()
     GameEvents.banana_placed.emit(square_index)
 
 func _remove_banana(square_index: int) -> void:
     bananas_on_board.erase(square_index)
-    squares[square_index].remove_banana()
+    if square_index >= 0 and square_index < squares.size() and squares[square_index].has_method("remove_banana"):
+        squares[square_index].remove_banana()
     GameEvents.banana_removed.emit(square_index)
 
 func _on_place_banana_on_property(player_id: int, count: int) -> void:
@@ -220,7 +240,8 @@ func _on_coins_placed(square_index: int, amount: int) -> void:
     if not coins_on_board.has(square_index):
         coins_on_board[square_index] = 0
     coins_on_board[square_index] += amount
-    squares[square_index].show_coins(amount)
+    if square_index >= 0 and square_index < squares.size() and squares[square_index].has_method("show_coins"):
+        squares[square_index].show_coins(amount)
     GameEvents.board_coins_updated.emit(square_index, coins_on_board[square_index])
 
 func _on_collect_all_board_coins(player_id: int) -> void:
@@ -228,7 +249,8 @@ func _on_collect_all_board_coins(player_id: int) -> void:
     var total = 0
     for idx in coins_on_board.keys():
         total += coins_on_board[idx]
-        squares[idx].hide_coins()
+        if idx >= 0 and idx < squares.size() and squares[idx].has_method("hide_coins"):
+            squares[idx].hide_coins()
     coins_on_board.clear()
     if total > 0:
         PlayerManager.get_player(player_id).add_coins(total)
@@ -285,3 +307,67 @@ func has_banana(square_index: int) -> bool:
 
 func get_coins_on_square(square_index: int) -> int:
     return coins_on_board.get(square_index, 0)
+
+
+func _load_square_defs() -> void:
+    square_defs.clear()
+    var f = FileAccess.open("res://resources/board_data/board_layout.json", FileAccess.READ)
+    if f == null:
+        return
+    var j = JSON.new()
+    if j.parse(f.get_as_text()) != OK:
+        f.close()
+        return
+    f.close()
+    for sq in j.data.get("squares", []):
+        square_defs[sq.get("id", -1)] = sq
+
+func _init_starting_coins() -> void:
+    coins_on_board.clear()
+    for i in TOTAL_SQUARES:
+        coins_on_board[i] = 1
+
+
+func _resolve_visual_square_effect(player_id: int, square_index: int) -> void:
+    var sq = square_defs.get(square_index, {})
+    var sq_type = String(sq.get("type", ""))
+
+    if sq_type == "BOOST_PAD":
+        GameEvents.bonus_roll_requested.emit(player_id, "numeric")
+        GameEvents.square_effect_completed.emit(player_id)
+        return
+
+    if sq_type == "PROPERTY":
+        var prop_square = _build_property_proxy(square_index, sq)
+        if prop_square.owner_player == null:
+            GameEvents.property_available.emit(player_id, prop_square)
+        elif prop_square.owner_player.player_id != player_id:
+            var rent = prop_square.data.rent_base
+            if PlayerManager.player_owns_full_set(prop_square.owner_player.player_id, prop_square.data.color_group):
+                rent = prop_square.data.rent_double
+            GameEvents.rent_due.emit(player_id, prop_square.owner_player.player_id, rent)
+        GameEvents.square_effect_completed.emit(player_id)
+        return
+
+    GameEvents.square_effect_completed.emit(player_id)
+
+
+func _build_property_proxy(square_index: int, sq: Dictionary):
+    var proxy = Node2D.new()
+    proxy.set_script(load("res://scripts/board/squares/PropertySquare.gd"))
+    proxy.square_id = square_index
+    var data = SquareData.new()
+    data.square_name = String(sq.get("name", "Propiedad"))
+    data.buy_cost = int(sq.get("buy_cost", 0))
+    data.rent_base = int(sq.get("rent_base", 1))
+    data.rent_double = int(sq.get("rent_double", data.rent_base * 2))
+    data.point_value = int(sq.get("point_value", 1))
+    data.color_group = String(sq.get("color_group", ""))
+    proxy.data = data
+
+    for pid in PlayerManager.get_active_player_ids():
+        var p = PlayerManager.get_player(pid)
+        if p and p.owns_property(square_index):
+            proxy.owner_player = p
+            break
+    return proxy
