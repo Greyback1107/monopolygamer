@@ -1,16 +1,3 @@
-[gd_scene format=3 uid="uid://bcml312rbmlts"]
+[gd_scene format=3 uid="uid://sxn7xif70jen"]
 
-[ext_resource type="Script" uid="uid://cq4j7558b35gw" path="res://scripts/properties/AuctionPanel.gd" id="1_6f9df"]
-
-[node name="AuctionPanel" type="PanelContainer" unique_id=1553476702]
-script = ExtResource("1_6f9df")
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="AuctionPanel" type="PanelContainer" unique_id=329313776]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_6f9df")
+[node name="AuctionPanel" type="PanelContainer" unique_id=497702354]
